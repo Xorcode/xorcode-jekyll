@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/tbjers/jekyll-series
-  revision: 8a02d1649eabbe7f00878b77559170338f8f9631
-  specs:
-    jekyll-series (1.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,6 +25,7 @@ GEM
       octokit (~> 4.2)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
+    jekyll-series (1.0.1)
     jekyll-watch (1.5.0)
       listen (~> 3.0, < 3.1)
     kramdown (1.13.2)
@@ -70,7 +65,7 @@ DEPENDENCIES
   jekyll (= 3.4.2)
   jekyll-feed (~> 0.6)
   jekyll-gist (~> 1.4.0)
-  jekyll-series!
+  jekyll-series (~> 1.0.1)
   minima (~> 2.0)
   rack-jekyll
 

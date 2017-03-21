@@ -8,5 +8,5 @@ gem "rack-jekyll"
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.6"
    gem "jekyll-gist", "~> 1.4.0"
-   gem "jekyll-series", git: "https://github.com/tbjers/jekyll-series"
+   gem "jekyll-series", "~> 1.0.1"
 end
