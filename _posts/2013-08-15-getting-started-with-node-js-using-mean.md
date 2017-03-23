@@ -31,10 +31,10 @@ Open a terminal to verify Node.js installation:
 
 #### Mac OS X
 
-```sh
+{% highlight sh %}
 $ node --version
 v0.11.5
-```
+{% endhighlight %}
 
 #### Windows
 
