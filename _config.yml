@@ -26,6 +26,9 @@ github_username:  xorcode
 disqus:
   shortname: xorcode
 google_analytics: UA-16963170-1
+bitly:
+  username: xorcode
+  api_key: R_b0b9b280be9a10ca4165d7c47574440d
 
 # Build settings
 markdown: kramdown
