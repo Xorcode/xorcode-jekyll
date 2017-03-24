@@ -38,7 +38,9 @@ gems:
   - jekyll-gist
   - jekyll-series
 exclude:
+  - Procfile
   - Gemfile
   - Gemfile.lock
   - config.ru
   - vendor
+
