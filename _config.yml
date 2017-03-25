@@ -32,11 +32,16 @@ bitly:
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
 theme: minima
 gems:
   - jekyll-feed
   - jekyll-gist
+  - jekyll-highlight
   - jekyll-series
+  - jekyll-seo-tag
 exclude:
   - Procfile
   - Gemfile
