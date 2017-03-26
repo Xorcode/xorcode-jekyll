@@ -1,0 +1,16 @@
+@import "grid";
+@import "header";
+@import "footer";
+@import "hero";
+@import "stats";
+@import "bullets";
+@import "article";
+@import "grid-items";
+
+.bg-dark-sand {
+  background-color: $dark-sand;
+}
+
+.bg-light-sand {
+  background-color: $light-sand;
+}
