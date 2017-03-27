@@ -44,7 +44,6 @@ kramdown:
 gems:
   - bourbon
   - neat
-  - jekyll-admin
   - jekyll-bitly
   - jekyll-feed
   - jekyll-gist
