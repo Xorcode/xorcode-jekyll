@@ -22,8 +22,12 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
+code_dir: downloads/code
+category_dir: blog/categories
+tag_dir: blog/tags
+
 tag_page_layout: tag_index
-tag_page_dir: tag
+tag_page_dir: blog/tags
 tag_page_data:
   sitemap: false
 

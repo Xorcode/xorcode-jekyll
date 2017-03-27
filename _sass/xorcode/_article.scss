@@ -1,4 +1,4 @@
-body.single, body.page {
+body.single, body.post, body.page {
   background-image: url('img/article-background.png');
   background-position: right;
   background-size: cover;
@@ -54,6 +54,10 @@ article.type-post {
     padding: 0.3em 0;
     text-align: left;
     text-transform: uppercase;
+    a {
+      text-decoration: none;
+      color: inherit !important;
+    }
   }
 
   h1 {

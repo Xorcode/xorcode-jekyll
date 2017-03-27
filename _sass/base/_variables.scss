@@ -2,6 +2,12 @@
 $medium-screen: (media: 600px);
 $large-screen: (media: 900px);
 
+// Grid configuration
+$neat-grid: (
+  columns: 10,
+  gutter: 2em,
+);
+
 // Typography
 $font-stack-paralucent: (
   'paralucent',

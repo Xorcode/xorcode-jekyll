@@ -3,7 +3,7 @@ layout: default
 ---
 <section class="blog-entry left">
   <article class="type-{{ page.layout }}" itemscope itemtype="http://schema.org/BlogPosting">
-    <p class="type">Cloud</p>
+    {% include post/categories.html %}
     <h1 itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="date post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time></p>
     {{ content }}

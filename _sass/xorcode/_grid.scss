@@ -44,14 +44,16 @@ section {
   }
   &.blog-entries {
     @include grid-container;
+    margin: 0;
     padding-top: 3em;
     padding-bottom: 3em;
     & > article {
-      @include grid-column(10);
+      margin-bottom: 2em;
+      @include grid-column(8);
       @include grid-shift(1);
       @include grid-media($large-screen) {
-        @include grid-column(4);
         @include grid-shift(1);
+        @include grid-column(4);
       }
       h1 {
         font-size: 1.5em;

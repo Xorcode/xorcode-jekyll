@@ -93,4 +93,6 @@ $(document).ready(function () {
 
   belowEntryMetaClass('img.size-full');
   belowEntryMetaClass('blockquote.alignleft, blockquote.alignright');
+
+  $('.blog-entries > article').matchHeight();
 });
