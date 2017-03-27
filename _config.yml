@@ -58,4 +58,3 @@ exclude:
   - config.ru
   - vendor
   - Rakefile
-  - CNAME
