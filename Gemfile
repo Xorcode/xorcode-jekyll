@@ -2,6 +2,7 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "bundler"
+gem "rake", "12.0.0"
 gem "jekyll", "3.4.3"
 gem "rack-jekyll"
 gem "kramdown", "~> 1.13.2"
