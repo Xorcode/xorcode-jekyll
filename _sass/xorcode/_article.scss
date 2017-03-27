@@ -2,7 +2,7 @@ body.single, body.page {
   background-image: url('img/article-background.png');
   background-position: right;
   background-size: cover;
-  @include media($large-screen) {
+  @include grid-media($large-screen) {
     background-position: right;
     background-size: none;
   }
@@ -13,7 +13,7 @@ article.type-post {
   $base-border-radius: 3px !default;
   $base-line-height: 1.5em !default;
   $base-spacing: 1.5em !default;
-  $medium-screen: 40em !default;
+  $medium-screen: (media: 40em) !default;
   $base-font-color: $dark-gray !default;
   $sans-serif: $font-stack-system;
   $headings: $font-stack-paralucent;
@@ -62,7 +62,7 @@ article.type-post {
     font-weight: 500;
     margin-bottom: 0.5em;
 
-    @include media($medium-screen) {
+    @include grid-media($medium-screen) {
       font-size: 2.6em;
     }
   }
@@ -74,7 +74,7 @@ article.type-post {
     line-height: 1.4em;
     margin-bottom: 1.1em;
 
-    @include media($medium-screen) {
+    @include grid-media($medium-screen) {
       font-size: 1.3em;
     }
   }

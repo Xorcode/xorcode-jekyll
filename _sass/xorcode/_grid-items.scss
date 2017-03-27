@@ -3,12 +3,12 @@
 }
 
 .grid-container {
-  @include outer-container;
+  @include grid-container;
   padding-top: 3em;
   padding-bottom: 3em;
   & > .grid.items {
-    @include span-columns(9);
-    @include shift(1.5);
+    @include grid-column(9);
+    @include grid-shift(1.5);
   }
 }
 
@@ -16,8 +16,8 @@
   $base-background-color: white !default;
   $dark-gray: #333 !default;
   $light-gray: #DDD !default;
-  $medium-screen: 40em !default;
-  $large-screen: 53.75em !default;
+  $medium-screen: (media: 40em) !default;
+  $large-screen: (media: 53.75em) !default;
   $base-font-color: $dark-gray !default;
   $grid-items-background: $base-background-color;
   $grid-item-background: $base-background-color;
@@ -41,7 +41,7 @@
     transition: all 0.2s ease-in-out;
     width: 100%;
 
-    @include media($large-screen) {
+    @include grid-media($large-screen) {
       @include grid-item-columns($grid-item-columns);
     }
 
@@ -68,17 +68,17 @@
       color: transparentize($grid-item-color, 0.4);
       line-height: 1.5em;
 
-      @include media($medium-screen) {
+      @include grid-media($medium-screen) {
         max-width: 70%;
       }
     }
 
   .grid-item-big {
-    @include media($large-screen) {
+    @include grid-media($large-screen) {
       @include grid-item-columns($grid-item-big-columns);
     }
     p {
-      @include media($medium-screen) {
+      @include grid-media($medium-screen) {
         max-width: 60%;
       }
     }

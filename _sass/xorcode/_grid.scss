@@ -1,26 +1,26 @@
 section {
   &.row {
-    @include outer-container;
+    @include grid-container;
   }
   &.blog-entry {
-    @include outer-container;
+    @include grid-container;
     padding-top: 3em;
     padding-bottom: 3em;
     &.left {
       & > article {
-        @include span-columns(9);
-        @include shift(1.5);
-        @include media($large-screen) {
-          @include shift(1);
-          @include span-columns(7);
+        @include grid-column(9);
+        @include grid-shift(1.5);
+        @include grid-media($large-screen) {
+          @include grid-shift(1);
+          @include grid-column(7);
         }
       }
       & > aside {
-        @include span-columns(9);
-        @include shift(1.5);
-        @include media($large-screen) {
-          @include shift(0.5);
-          @include span-columns(3);
+        @include grid-column(9);
+        @include grid-shift(1.5);
+        @include grid-media($large-screen) {
+          @include grid-shift(0.5);
+          @include grid-column(3);
         }
         li {
           border-bottom: 1px solid transparentize($action-color, 0.8);
@@ -38,20 +38,20 @@ section {
       }
     }
     &.wide > article {
-      @include span-columns(9);
-      @include shift(1.5);
+      @include grid-column(9);
+      @include grid-shift(1.5);
     }
   }
   &.blog-entries {
-    @include outer-container;
+    @include grid-container;
     padding-top: 3em;
     padding-bottom: 3em;
     & > article {
-      @include span-columns(10);
-      @include shift(1);
-      @include media($large-screen) {
-        @include span-columns(4);
-        @include shift(1);
+      @include grid-column(10);
+      @include grid-shift(1);
+      @include grid-media($large-screen) {
+        @include grid-column(4);
+        @include grid-shift(1);
       }
       h1 {
         font-size: 1.5em;

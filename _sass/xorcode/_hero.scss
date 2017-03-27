@@ -1,5 +1,5 @@
 .hero {
-  $large-screen: 50em !default;
+  $large-screen: (media: 50em) !default;
   align-items: center;
   background-color: $dark-red;
   background-position: right;
@@ -14,7 +14,7 @@
   -moz-box-shadow: inset 0px -24px 24px -19px rgba(0,0,0,0.2);
   box-shadow: inset 0px -24px 24px -19px rgba(0,0,0,0.2);
 
-  @include media($large-screen) {
+  @include grid-media($large-screen) {
     background-position: left;
     background-size: cover;
   }

@@ -36,17 +36,16 @@ highlighter: rouge
 kramdown:
   input: GFM
 gems:
+  - bourbon
+  - neat
   - jekyll-feed
   - jekyll-gist
   - jekyll-highlight
   - jekyll-series
   - jekyll-seo-tag
-  - bourbon
-  - neat
 exclude:
   - Procfile
   - Gemfile
   - Gemfile.lock
   - config.ru
   - vendor
-

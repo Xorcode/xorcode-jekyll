@@ -1,15 +1,14 @@
 // Breakpoints
-$medium-screen: 600px;
-$large-screen: 900px;
+$medium-screen: (media: 600px);
+$large-screen: (media: 900px);
 
+// Typography
 $font-stack-paralucent: (
   'paralucent',
   $font-stack-system
 );
-
-// Typography
 $base-font-family: $font-stack-system;
-$heading-font-family: $font-stack-paralucent;
+$heading-font-family: $base-font-family;
 
 // Font Sizes
 $base-font-size: 1em;
@@ -35,7 +34,6 @@ $light-sand: #cabead !default;
 $dark-sand: #afa597 !default;
 $chocolate: #473335 !default;
 $action-color: #477dca !default;
-
 
 // Font Colors
 $base-font-color: $dark-gray;

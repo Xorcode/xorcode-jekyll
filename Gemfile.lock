@@ -38,7 +38,7 @@ GEM
       jekyll (~> 3.3)
     jekyll-gist (1.4.0)
       octokit (~> 4.2)
-    jekyll-highlight (1.0.5)
+    jekyll-highlight (1.0.6)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
     jekyll-seo-tag (2.1.0)
@@ -95,8 +95,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bitters (>= 1.3.0)
-  bourbon (>= 4.2.0)
+  bitters (~> 1.5.0)
+  bourbon (~> 5.0.0.beta.7)
   bundler
   jekyll (= 3.4.2)
   jekyll-bitly (~> 1.0.0)
@@ -106,10 +106,10 @@ DEPENDENCIES
   jekyll-seo-tag (~> 2.1.0)
   jekyll-series (~> 1.0.1)
   kramdown (~> 1.13.2)
-  neat (>= 1.7.0)
+  neat (~> 2.0.0.beta.1)
   pygments.rb (~> 0.3.7)
   rack-jekyll
-  sass (>= 3.4.22)
+  sass (~> 3.4.23)
 
 RUBY VERSION
    ruby 2.3.3p222
