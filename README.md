@@ -1,5 +1,7 @@
 # Xorcode.com website
 
+[![Build Status](https://travis-ci.org/Xorcode/xorcode-jekyll.svg?branch=master)](https://travis-ci.org/Xorcode/xorcode-jekyll)
+
 Powered by [Jekyll][jekyll] and [GitHub Pages][github-pages].
 
 ## Installation
