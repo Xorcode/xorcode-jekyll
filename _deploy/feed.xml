@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-03-27T02:26:58-04:00</updated><id>/</id><title type="html">Xorcode</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="/jekyll/update/2017/03/19/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-03-19T12:38:44-04:00</published><updated>2017-03-19T12:38:44-04:00</updated><id>/jekyll/update/2017/03/19/welcome-to-jekyll</id><content type="html" xml:base="/jekyll/update/2017/03/19/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;figcaption&gt;File: test.rb&lt;/figcaption&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Foodles Kickstarter Launched</title><link href="/code/2014/11/15/foodles-kickstarter-launched.html" rel="alternate" type="text/html" title="Foodles Kickstarter Launched" /><published>2014-11-15T11:10:00-05:00</published><updated>2014-11-15T11:10:00-05:00</updated><id>/code/2014/11/15/foodles-kickstarter-launched</id><content type="html" xml:base="/code/2014/11/15/foodles-kickstarter-launched.html">&lt;p&gt;New Kickstarter launched! Foodl.es keeps all your favorite family recipes at your fingertips, no matter where your family meal traditions take you.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;We at Xorcode finally fired up our &lt;a href=&quot;http://kck.st/1veSwLo&quot;&gt;Kickstarter for Foodles&lt;/a&gt;! Having been busy with other projects it took us a while, but it’s finally here and we are ready to rock this project out.&lt;/p&gt;
+
+&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://www.kickstarter.com/projects/torgny/foodles-your-heirloom-recipes-everywhere/widget/video.html&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;margin-bottom:15px;&quot;&gt; &lt;/iframe&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Foodl.es isn’t just another online cookbook. We’ve taken the basic ingredients that you find in all cookbooks and thrown out the recipe. With a focus on preserving your family traditions it is something entirely special. So much of our family traditions are tied to food and meals shared with our loved ones. Foodl.es is not just a place to collect and organize your recipes, but also the preservation of family traditions by offering you the ability to attach a story, video or pictures to an individual recipe.&lt;/p&gt;
+
+  &lt;p&gt;We know that you don’t always want to share your family recipes, so all your recipes default to private and can be shared at your choosing, not ours. With different subscription levels you can customize your account to fit your needs. Our Individual Package, well, it’s pretty explanatory. The Family Package opens up collaborating with other users to share recipes and create a family cookbook. Our Community Package is perfect for larger groups that want to create a shared cookbook. All cookbooks can be stored online or sent to a printer for publication.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Help us spread the word and by backing the &lt;a href=&quot;http://kck.st/1veSwLo&quot;&gt;Foodles&lt;/a&gt; project on Kickstarter!&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;btn btn-success&quot; href=&quot;http://kck.st/1veSwLo&quot;&gt;&lt;i class=&quot;fa fa-heart&quot;&gt;&lt;/i&gt; Kickstarter&lt;/a&gt;
+&lt;a class=&quot;btn btn-primary&quot; href=&quot;http://foodl.es/&quot;&gt;&lt;i class=&quot;fa fa-bullhorn&quot;&gt;&lt;/i&gt; Foodles Landing page&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="kickstarter" /><category term="food" /><category term="cookbook" /><summary type="html">New Kickstarter launched! Foodl.es keeps all your favorite family recipes at your fingertips, no matter where your family meal traditions take you.</summary></entry><entry><title type="html">Help us Reset The Net on June 5</title><link href="/cloud/server/2014/04/19/help-us-reset-the-net-on-june-5.html" rel="alternate" type="text/html" title="Help us Reset The Net on June 5" /><published>2014-04-19T11:38:00-04:00</published><updated>2014-04-19T11:38:00-04:00</updated><id>/cloud/server/2014/04/19/help-us-reset-the-net-on-june-5</id><content type="html" xml:base="/cloud/server/2014/04/19/help-us-reset-the-net-on-june-5.html">&lt;p&gt;We can’t stop targeted hacking, but we &lt;em&gt;can&lt;/em&gt; stop mass surveillance, by building proven security into the everyday Internet. Join us and others for &lt;a href=&quot;https://www.resetthenet.org/&quot;&gt;#ResetTheNet&lt;/a&gt; on June 5th where we promote free, open source tools for end-to-end encryption.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube-nocookie.com/embed/qKk8MHFLNNE?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;what-can-i-do&quot;&gt;What can I do?&lt;/h2&gt;
+
+&lt;p&gt;By June 5th, do something to reset your part of the web. What’s the most you can do to block mass surveillance? For sites and apps, the first step is securing the connection between you and your users. For anyone with an audience, or a circle of friends, the best thing you can do is promote a end-to-end encryption (there are some really easy-to-use tools for that now, but they need promotion). For visionary geeks, sky’s the limit. Think big!&lt;/p&gt;
+
+&lt;p&gt;Get started now and read up on &lt;a href=&quot;http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security&quot;&gt;HSTS&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Perfect_forward_secrecy&quot;&gt;PFS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For more information, see the &lt;a href=&quot;https://www.resetthenet.org/&quot;&gt;Reset The Net&lt;/a&gt; page.&lt;/p&gt;</content><author><name></name></author><category term="security" /><category term="causes" /><category term="server" /><category term="privacy" /><summary type="html">We can’t stop targeted hacking, but we can stop mass surveillance, by building proven security into the everyday Internet. Join us and others for #ResetTheNet on June 5th where we promote free, open source tools for end-to-end encryption.</summary></entry><entry><title type="html">Charlotte Meteor Hackathon #1</title><link href="/code/cloud/2014/04/04/charlotte-meteor-hackathon-1.html" rel="alternate" type="text/html" title="Charlotte Meteor Hackathon #1" /><published>2014-04-04T01:08:00-04:00</published><updated>2014-04-04T01:08:00-04:00</updated><id>/code/cloud/2014/04/04/charlotte-meteor-hackathon-1</id><content type="html" xml:base="/code/cloud/2014/04/04/charlotte-meteor-hackathon-1.html">&lt;p&gt;We will be hacking on an app or service that provides value to Charlotte and the local communities here as a project where we can get to know Meteor in depth from idea to deployment and production environment configuration.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Please join us and other developers and designers from Charlotte as we create something cool for fun and for our own education!&lt;/p&gt;
+
+&lt;p&gt;We will be providing food and drink for all Meteorites that attend. If you have any dietary preferences, please contact either Torgny or Jill so that we can plan accordingly.&lt;/p&gt;
+
+&lt;p&gt;Scott Deeter has volunteered to lead this hackathon. He has a bit of work done on the concept for a Craigslist clone and can help us all get started learning Meteor!&lt;/p&gt;
+
+&lt;p&gt;We are looking forward to joining with others to learn more about Meteor and its awesome features.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/PuyJoa&quot; class=&quot;btn btn-primary&quot;&gt;Join Us&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="meteor" /><category term="charlotte" /><category term="hackathon" /><category term="meetup" /><summary type="html">We will be hacking on an app or service that provides value to Charlotte and the local communities here as a project where we can get to know Meteor in depth from idea to deployment and production environment configuration.</summary></entry><entry><title type="html">Introducing the Meteor Charlotte meetup group</title><link href="/code/2014/03/03/introducing-meteor-charlotte-meetup-group.html" rel="alternate" type="text/html" title="Introducing the Meteor Charlotte meetup group" /><published>2014-03-03T16:36:00-05:00</published><updated>2014-03-03T16:36:00-05:00</updated><id>/code/2014/03/03/introducing-meteor-charlotte-meetup-group</id><content type="html" xml:base="/code/2014/03/03/introducing-meteor-charlotte-meetup-group.html">&lt;p&gt;Earlier this year we at Xorcode started a &lt;a href=&quot;http://bit.ly/1fWi0DT&quot;&gt;meetup group&lt;/a&gt; for people interested in Meteor in Charlotte, NC. We had a pretty decent turnout the first meeting, with thirteen Meteorites in attendance. We’ve got several more meetings planned along with a hackathon.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;So far we’re 28 Meteorites and growing. We’ve got a Hackathon planned for &lt;a href=&quot;http://bit.ly/1jN03sl&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt; March 10th, 2014 at 6:30pm&lt;/a&gt; where we will begin hacking on an application that will benefit the local community in some way.&lt;/p&gt;
+
+&lt;p&gt;Do you have ideas for the next, cool local application that can help the people of Charlotte in their daily lives? If so, join our Hackathon and help us figure out what to build!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/1jMZw9J&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;fa fa-users&quot;&gt;&lt;/i&gt; Join Charlotte Meteor&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="meteor" /><category term="charlotte" /><category term="meetup" /><summary type="html">Earlier this year we at Xorcode started a meetup group for people interested in Meteor in Charlotte, NC. We had a pretty decent turnout the first meeting, with thirteen Meteorites in attendance. We’ve got several more meetings planned along with a hackathon.</summary></entry><entry><title type="html">Using New Relic’s Node.js agent to monitor Geddy applications</title><link href="/code/2013/10/24/using-new-relic-node-js-agent-to-monitor-geddy-applications.html" rel="alternate" type="text/html" title="Using New Relic's Node.js agent to monitor Geddy applications" /><published>2013-10-24T13:54:00-04:00</published><updated>2013-10-24T13:54:00-04:00</updated><id>/code/2013/10/24/using-new-relic-node-js-agent-to-monitor-geddy-applications</id><content type="html" xml:base="/code/2013/10/24/using-new-relic-node-js-agent-to-monitor-geddy-applications.html">&lt;p&gt;Having used &lt;a href=&quot;http://bit.ly/1pWLIgB&quot;&gt;New Relic&lt;/a&gt; for other projects we of course jumped on the chance to get started with &lt;a href=&quot;http://bit.ly/1fCU83P&quot;&gt;New Relic for Node.js&lt;/a&gt; when our sales contact reached out to us right after their beta ended. We’ve got several projects using &lt;a href=&quot;http://bit.ly/1pWLHcA&quot;&gt;Geddy&lt;/a&gt;, which is not supported out of the box, so we had to do some customization.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Pinpoint and solve your Node.js application performance issues! New Relic is the only tool you’ll need to see everything in your data intensive, real-time, Node.js applications—from application response times to server monitoring.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;New Relic for Node.js officially launched today, and the &lt;a href=&quot;http://bit.ly/1fCU83Q&quot;&gt;original press release&lt;/a&gt; includes a short tutorial on how to get started, which we will also cover in this article.&lt;/p&gt;
+
+&lt;h2 id=&quot;create-a-new-geddy-project&quot;&gt;Create a new Geddy project&lt;/h2&gt;
+
+&lt;p&gt;Create a new Geddy project.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ geddy gen app newrelic-test
+$ cd newrelic-test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Let’s start with installing the New Relic Node.js agent.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install newrelic --save
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;configuring-geddy-and-new-relic&quot;&gt;Configuring Geddy and New Relic&lt;/h2&gt;
+
+&lt;p&gt;Once you have installed the agent, you need to copy the configuration file into the root of your project.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp ./node_modules/newrelic/newrelic.js .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Open &lt;code class=&quot;highlighter-rouge&quot;&gt;newrelic.js&lt;/code&gt; and change the value for &lt;strong&gt;app_name&lt;/strong&gt; to the name of your application. Replace the value of &lt;strong&gt;license_key&lt;/strong&gt; with your actual license key which you get from New Relic. We also change &lt;strong&gt;logging.level&lt;/strong&gt; from &lt;em&gt;“trace”&lt;/em&gt; to &lt;em&gt;“info”&lt;/em&gt; to avoid agent log spam.&lt;/p&gt;
+
+&lt;p&gt;In order for New Relic to be able to properly report for your application we need to create a startup file since we can’t run this with the &lt;code class=&quot;highlighter-rouge&quot;&gt;geddy&lt;/code&gt; command like we normally do locally.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install geddy --save
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Create a new file in your project root called &lt;code class=&quot;highlighter-rouge&quot;&gt;app.js&lt;/code&gt; and add the following to that file to get New Relic up and running in your Geddy project:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var geddy = require('geddy');
+
+geddy.startCluster({
+  hostname: '0.0.0.0'
+, port: process.env.PORT || '4000'
+, environment: process.env.NODE_ENV || 'development'
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;loading-new-relic&quot;&gt;Loading New Relic&lt;/h2&gt;
+
+&lt;p&gt;Load New Relic in your &lt;code class=&quot;highlighter-rouge&quot;&gt;config/init.js&lt;/code&gt; script.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var cluster = require('cluster');
+
+if (cluster.isWorker &amp;amp;&amp;amp; process.env.NODE_ENV == 'production') {
+  process.env.NEW_RELIC_LOG = 'stdout';
+  geddy.newrelic = require('newrelic');
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We only require the New Relic module if we’re running in production. You can always remove the &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; statement around &lt;code class=&quot;highlighter-rouge&quot;&gt;require('newrelic')&lt;/code&gt; if that makes more sense to you. We also prefer that New Relic logs to &lt;code class=&quot;highlighter-rouge&quot;&gt;stdout&lt;/code&gt; instead of to a log file since we host on various different platforms and we might not want files to be created at all.&lt;/p&gt;
+
+&lt;h2 id=&quot;scaffold-test-endpoint&quot;&gt;Scaffold test endpoint&lt;/h2&gt;
+
+&lt;p&gt;We need something to report on, so let’s scaffold an endpoint for our application to report on.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ geddy gen scaffold user username:string email:string
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You’ll see output similar to this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Added] app/models/user.js
+[Added] db/migrations/20131024163436_create_users.js
+[Added] test/models/user.js
+[Added] test/controllers/users.js
+[Added] app/controllers/users.js
+[Added] Resource users route added to config/router.js
+[Added] View templates
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;name-requests-properly-in-geddy&quot;&gt;Name requests properly in Geddy&lt;/h2&gt;
+
+&lt;p&gt;Open up &lt;code class=&quot;highlighter-rouge&quot;&gt;app/controllers/application.js&lt;/code&gt; and change its contents to the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var Application = function () {
+  this.before(function () {
+    geddy.newrelic.setControllerName(this.params.controller, this.params.action);
+  });
+};
+
+exports.Application = Application;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We are using &lt;code class=&quot;highlighter-rouge&quot;&gt;newrelic.setControllerName()&lt;/code&gt; to name our requests so that they do not all get grouped under &lt;code class=&quot;highlighter-rouge&quot;&gt;/*&lt;/code&gt; or similar in New Relic.&lt;/p&gt;
+
+&lt;h2 id=&quot;run-your-application&quot;&gt;Run your application&lt;/h2&gt;
+
+&lt;p&gt;Running our application with Node is simple:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ node app
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Navigate to &lt;a href=&quot;http://localhost:4000/&quot;&gt;http://localhost:4000/&lt;/a&gt; and then &lt;a href=&quot;http://localhost:4000/users&quot;&gt;http://localhost:4000/users&lt;/a&gt; where you can start adding, editing, and removing users to get some sample data in your New Relic account.&lt;/p&gt;
+
+&lt;p&gt;Once you start your application you will begin to see data in New Relic within five minutes and your brand new Node.js application will be accessible from your New Relic dashboard.&lt;/p&gt;
+
+&lt;h2 id=&quot;repository&quot;&gt;Repository&lt;/h2&gt;
+
+&lt;p&gt;You can take a look at our example repository if you want to make sure you didn’t miss anything.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://bit.ly/1pWLIgG&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;fa fa-bitbucket&quot;&gt;&lt;/i&gt; Fork on Bitbucket&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;documentation&quot;&gt;Documentation&lt;/h2&gt;
+
+&lt;p&gt;For more information, please see the &lt;a href=&quot;http://geddyjs.org/reference#controllers.params&quot;&gt;Geddy documentation&lt;/a&gt; on controllers as well as the &lt;a href=&quot;https://github.com/newrelic/node-newrelic/#transactions-and-request-naming&quot;&gt;New Relic Node.js project&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;thank-yous&quot;&gt;Thank yous&lt;/h2&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&quot;https://github.com/ben-ng&quot;&gt;Ben Ng&lt;/a&gt; for finding the memory leak issue with New Relic and for supplying a fix.&lt;/p&gt;</content><author><name></name></author><category term="node.js" /><category term="geddy" /><category term="new relic" /><summary type="html">Having used New Relic for other projects we of course jumped on the chance to get started with New Relic for Node.js when our sales contact reached out to us right after their beta ended. We’ve got several projects using Geddy, which is not supported out of the box, so we had to do some customization.</summary></entry><entry><title type="html">Magento: Generic URL Rewrite Importer</title><link href="/code/2013/09/15/magento-generic-url-rewrite-importer.html" rel="alternate" type="text/html" title="Magento: Generic URL Rewrite Importer" /><published>2013-09-15T12:26:00-04:00</published><updated>2013-09-15T12:26:00-04:00</updated><id>/code/2013/09/15/magento-generic-url-rewrite-importer</id><content type="html" xml:base="/code/2013/09/15/magento-generic-url-rewrite-importer.html">&lt;p&gt;Ever needed to import a large set of generic URL rewrites into Magento? The Generic URL Rewrite Importer for Magento helps you do just that!
+&lt;!--more--&gt;
+Xorcode just moved a sizable e-commerce site from &lt;a href=&quot;http://xorcode.net/193sDO2&quot;&gt;WordPress&lt;/a&gt;/&lt;a href=&quot;http://xorcode.net/193sCtt&quot;&gt;WooCommerce&lt;/a&gt; to &lt;a href=&quot;http://xorcode.net/1efkdKU&quot;&gt;Magento&lt;/a&gt;. We faced the daunting task of creating over 20,000 URL rewrites since the URL slug structure of Magento ended up being slightly different from what WordPress created.&lt;/p&gt;
+
+&lt;p&gt;Manually entering 20,000+ URL rewrites didn’t sound like fun, so we looked at other options. We could buy an extension, or we could write our own for this specific task. We choose to roll our own. Since we wrote it, we’ll share it with you, for free. If you use it and like it, you can always &lt;a href=&quot;https://flattr.com/profile/xorcode&quot;&gt;Flattr&lt;/a&gt; this article, or send us a donation with PayPal.&lt;/p&gt;
+
+&lt;form action=&quot;https://www.paypal.com/cgi-bin/webscr&quot; method=&quot;post&quot; target=&quot;_top&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;cmd&quot; value=&quot;_s-xclick&quot; /&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;hosted_button_id&quot; value=&quot;SADU3WX2H6CFY&quot; /&gt;
+&lt;input type=&quot;image&quot; src=&quot;https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif&quot; border=&quot;0&quot; name=&quot;submit&quot; alt=&quot;PayPal - The safer, easier way to pay online!&quot; /&gt;
+&lt;img alt=&quot;&quot; border=&quot;0&quot; src=&quot;https://www.paypalobjects.com/en_US/i/scr/pixel.gif&quot; width=&quot;1&quot; height=&quot;1&quot; /&gt;
+&lt;/form&gt;
+
+&lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;Install the extension in your Magento site by logging into your admin panel and going to &lt;em&gt;Magento Connect Manager&lt;/em&gt;, which is under the &lt;em&gt;System&lt;/em&gt; menu. Once there, use the &lt;strong&gt;Direct package file upload&lt;/strong&gt; option and upload the package file supplied with this article.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://xorcode.net/1bwM9dc&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;fa fa-download&quot;&gt;&lt;/i&gt; Download URL Rewrite Importer&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-an-import-profile&quot;&gt;Creating an import profile&lt;/h3&gt;
+
+&lt;p&gt;Once you have installed the package you need to create a new &lt;strong&gt;Advanced Dataflow Profile&lt;/strong&gt;, you can find this under &lt;em&gt;System &amp;gt; Import/Export &amp;gt; Dataflow - Advanced Profiles&lt;/em&gt;. Create your profile, name it anything you want, we suggest “Xorcode Dataflow Urlrewrite Importer.”&lt;/p&gt;
+
+&lt;p&gt;Enter the following &lt;abbr title=&quot;eXtended Markup Language&quot;&gt;XML&lt;/abbr&gt; in the &lt;em&gt;Actions XML&lt;/em&gt; field:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;action type=&quot;dataflow/convert_adapter_io&quot; method=&quot;load&quot;&amp;gt;
+    &amp;lt;var name=&quot;type&quot;&amp;gt;file&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;path&quot;&amp;gt;var/import&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;filename&quot;&amp;gt;&amp;lt;![CDATA[url_rewrites.csv]]&amp;gt;&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;format&quot;&amp;gt;&amp;lt;![CDATA[csv]]&amp;gt;&amp;lt;/var&amp;gt;
+&amp;lt;/action&amp;gt;
+&amp;lt;action type=&quot;dataflow/convert_parser_csv&quot; method=&quot;parse&quot;&amp;gt;
+    &amp;lt;var name=&quot;delimiter&quot;&amp;gt;&amp;lt;![CDATA[,]]&amp;gt;&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;enclose&quot;&amp;gt;&amp;lt;![CDATA[&quot;]]&amp;gt;&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;fieldnames&quot;&amp;gt;true&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;store&quot;&amp;gt;&amp;lt;![CDATA[default]]&amp;gt;&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;options&quot;&amp;gt;&amp;lt;![CDATA[RP]]&amp;gt;&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;number_of_records&quot;&amp;gt;50&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;decimal_separator&quot;&amp;gt;&amp;lt;![CDATA[.]]&amp;gt;&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;adapter&quot;&amp;gt;dataflow/convert_adapter_urlrewrite&amp;lt;/var&amp;gt;
+    &amp;lt;var name=&quot;method&quot;&amp;gt;parse&amp;lt;/var&amp;gt;
+&amp;lt;/action&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You may wish to change the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;store&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;options&lt;/code&gt; to something other than the defaults provided. For instance, if your store’s name is &lt;strong&gt;Example&lt;/strong&gt;, enter &lt;code class=&quot;highlighter-rouge&quot;&gt;example&lt;/code&gt; in the &lt;abbr title=&quot;Character Data&quot;&gt;CDATA&lt;/abbr&gt; for the &lt;code class=&quot;highlighter-rouge&quot;&gt;store&lt;/code&gt; var.&lt;/p&gt;
+
+&lt;p&gt;Upload a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;url_rewrites.csv&lt;/code&gt; to your web server and place it in the &lt;code class=&quot;highlighter-rouge&quot;&gt;var/import&lt;/code&gt; folder of your Magento folder. You may have to create the &lt;code class=&quot;highlighter-rouge&quot;&gt;var/import&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;Now you are ready to run the profile. Click the &lt;strong&gt;Run Profile&lt;/strong&gt; tab on the Dataflow profile, then click &lt;strong&gt;Run Profile in Popup&lt;/strong&gt; and wait for magic.&lt;/p&gt;
+
+&lt;p&gt;If you have any suggestions, ideas, or bug reports, please &lt;a href=&quot;http://xorcode.net/193vmHs&quot;&gt;file issues in our repository&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="magento" /><category term="wordpress" /><category term="woocommerce" /><category term="extensions" /><summary type="html">Ever needed to import a large set of generic URL rewrites into Magento? The Generic URL Rewrite Importer for Magento helps you do just that! Xorcode just moved a sizable e-commerce site from WordPress/WooCommerce to Magento. We faced the daunting task of creating over 20,000 URL rewrites since the URL slug structure of Magento ended up being slightly different from what WordPress created.</summary></entry><entry><title type="html">Solarized Dark theme for Textual</title><link href="/code/2013/08/23/solarized-dark-theme-for-textual.html" rel="alternate" type="text/html" title="Solarized Dark theme for Textual" /><published>2013-08-23T14:43:00-04:00</published><updated>2013-08-23T14:43:00-04:00</updated><id>/code/2013/08/23/solarized-dark-theme-for-textual</id><content type="html" xml:base="/code/2013/08/23/solarized-dark-theme-for-textual.html">&lt;p&gt;After looking through the available themes for &lt;a href=&quot;http://xorcode.net/1azypgm&quot;&gt;Textual&lt;/a&gt;, one of the best &lt;abbr title=&quot;Internet Relay Chat&quot;&gt;IRC&lt;/abbr&gt; clients for &lt;a href=&quot;http://xorcode.net/1azyXCX&quot;&gt;Mac OS X&lt;/a&gt;, we decided to roll our own Solarized Dark theme by cloning the Sapientia theme packaged with Textual.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Textual is a lightweight IRC client created specifically for Mac OS X. It was designed with simplicity in mind. Textual has taken the best of IRC and built it into a single client. Its easy-to-use functionality combined with scripting support makes it an ideal IRC client for novice to advanced users.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/Library/Containers/com.codeux.irc.textual/Data/Library/Application&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;Support/Textual&lt;span class=&quot;se&quot;&gt;\ &lt;/span&gt;IRC/Styles/
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git clone https://github.com/Xorcode/textual-solarized-dark.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;contribute&quot;&gt;Contribute&lt;/h2&gt;
+
+&lt;p&gt;Feel free to fork our repository to contribute changes, bug fixes, and features. If you run into any problems with the theme, please create an &lt;a href=&quot;http://xorcode.net/1azz9C6&quot;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a class=&quot;btn btn-primary&quot; href=&quot;http://xorcode.net/1azzioV&quot;&gt;&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt; Fork textual-solarized-dark on Github&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="solarized" /><category term="textual" /><category term="theme" /><summary type="html">After looking through the available themes for Textual, one of the best IRC clients for Mac OS X, we decided to roll our own Solarized Dark theme by cloning the Sapientia theme packaged with Textual.</summary></entry><entry><title type="html">Getting Started with Node.js #2: Using OAuth2 in MEAN applications</title><link href="/code/2013/08/22/getting-started-with-node-js-using-oauth2-in-mean.html" rel="alternate" type="text/html" title="Getting Started with Node.js #2: Using OAuth2 in MEAN applications" /><published>2013-08-22T10:48:00-04:00</published><updated>2013-08-22T10:48:00-04:00</updated><id>/code/2013/08/22/getting-started-with-node-js-using-oauth2-in-mean</id><content type="html" xml:base="/code/2013/08/22/getting-started-with-node-js-using-oauth2-in-mean.html">&lt;p&gt;Once you have an application based on &lt;a href=&quot;http://xorcode.net/17N7RmC&quot;&gt;MEAN&lt;/a&gt; you may want to secure the &lt;abbr title=&quot;Application Programming Interface&quot;&gt;API&lt;/abbr&gt; end-points. At Xorcode we use &lt;a href=&quot;http://xorcode.net/17N7SH8&quot;&gt;OAuth2&lt;/a&gt; for securing &lt;abbr title=&quot;REpresentational State Transfer&quot;&gt;REST&lt;/abbr&gt; API end-points. OAuth can be cumbersome for web applications, though it is perfect for native desktop and mobile applications.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p class=&quot;alert alert-info&quot;&gt;This article would not exist if it wasn't for &lt;strong&gt;willwh&lt;/strong&gt; from the &lt;strong&gt;#node.js&lt;/strong&gt; channel on &lt;a href=&quot;http://xorcode.net/17N68O4&quot;&gt;FreeNode&lt;/a&gt; who asked how to connect MEAN to an iOS application.&lt;/p&gt;
+
+&lt;p&gt;In order to make this tutorial lesson easier to understand we have created a branch of MEAN which you can checkout and toy around with.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://xorcode.net/1av99Yo&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt; Clone our MEAN repository&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to use OAuth2 with MEAN we first need to modify &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; to include the relevant Node.js modules that we need to use in order to enable support for OAuth authentication.&lt;/p&gt;
+
+&lt;p&gt;```javascript package.json
+“dependencies”: {
+  // …
+  “passport-http”: “latest”,
+  “passport-http-bearer”: “latest”,
+  “passport-oauth2-client-password”: “latest”,
+  “oauth2orize”: “latest”,
+  “debug”: “~0.7.2”
+  // …
+}&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+We also added the debug module since it's used by **oauth2orize** and we decided to use the same pattern for our additions to mean.
+
+Update the dependencies in your mean project:
+
+```sh
+$ npm install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;creating-supporting-models&quot;&gt;Creating supporting Models&lt;/h2&gt;
+
+&lt;p&gt;OAuth needs to store tokens somewhere so we’ll create the required Mongoose schemas for use with oauth2orize and Passport.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/app/models/oauth_client.js&quot;&gt;app/models/oauth_client.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/app/models/access_token.js&quot;&gt;app/models/access_token.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/app/models/request_token.js&quot;&gt;app/models/request_token.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;strong&gt;OAuthClient&lt;/strong&gt; model serves as the foundation of this data structure. Each &lt;strong&gt;AccessToken&lt;/strong&gt; and &lt;strong&gt;RequestToken&lt;/strong&gt; is bound to a client and a user. When a client (web/mobile/desktop) requests permissions to access a user’s data, it identifies itself with its key.&lt;/p&gt;
+
+&lt;p&gt;RequestTokens are used during the interchange between the client and the server as a request for an AccessToken takes place.&lt;/p&gt;
+
+&lt;p&gt;AccessTokens are the final result of the OAuth2 transaction. They serve as the “password” used by the client to access the user’s data.&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-crud-for-oauth-clients&quot;&gt;Adding CRUD for OAuth Clients&lt;/h2&gt;
+
+&lt;p&gt;The only part of OAuth that our application’s users can directly interact with are the Clients. In Twitter and Facebook terms, these are “Applications.” We have created the necessary scaffolds for you:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/config/middlewares/authorization.js&quot;&gt;config/middlewares/authentication.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/app/controllers/clients.js&quot;&gt;app/controllers/clients.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/public/js/controllers/clients.js&quot;&gt;public/js/controllers/clients.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/public/js/services/clients.js&quot;&gt;public/js/services/clients.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These controllers with their accompanying views are basic. Feel free to modify them to your needs. You may for instance want to add verification of the redirect URI by adding a &lt;code class=&quot;highlighter-rouge&quot;&gt;redirectUri&lt;/code&gt; field to the OAuthClient schema, that way you can ensure that clients cannot be used to redirect to a site that may have nefarious intent.&lt;/p&gt;
+
+&lt;p&gt;We also need to modify some existing files in mean:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/public/js/config.js&quot;&gt;public/js/config.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/public/js/controllers/header.js&quot;&gt;public/js/controllers/header.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This will set up our client-side routes and make sure that the application responds properly when we want to edit/view clients.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/config/routes.js&quot;&gt;config/routes.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finally we need to add some routes to our router.&lt;/p&gt;
+
+&lt;p&gt;```javascript config/routes.js
+    //Client Routes
+    var clients = require(‘../app/controllers/clients’);
+    app.get(‘/clients’, clients.all);
+    app.post(‘/clients’, auth.requiresLogin, clients.create);
+    app.get(‘/clients/:clientId’, clients.show);
+    app.put(‘/clients/:clientId’, auth.requiresLogin, auth.client.hasAuthorization, clients.update);
+    app.del(‘/clients/:clientId’, auth.requiresLogin, auth.client.hasAuthorization, clients.destroy);&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Once we have this up and running, we're ready to create clients.
+
+## The OAuth2 Permissions Dialog
+
+Once a user wants to connect to our service from somewhere -- like a mobile application -- we need to get their permission first.
+
+- [app/views/oauth/dialog.jade](https://github.com/Xorcode/mean/blob/passport-oauth/app/views/oauth/dialog.jade)
+
+If you are familiar with Twitter or Facebook, you know that these sites ask for your permission when you want to connect them to another site or application. We will do the same for our users.
+
+## OAuth2 Express Middleware
+
+In order to integrate OAuth2 into our application we need to make several modifications to existing files as well as add a few new files. First up we will modify our Passport middleware.
+
+- [config/passport.js](https://github.com/Xorcode/mean/blob/passport-oauth/config/passport.js)
+
+We need to add Passport strategies for basic authentication, client password authentication, and bearer authentication.
+
+- [config/routes.js](https://github.com/Xorcode/mean/blob/passport-oauth/config/routes.js)
+
+Once we have added the passport strategies, we need to add a few new routes to allow clients to interact with our OAuth end-points.
+
+```javascript config/routes.js
+    var oauth2 = require('./middlewares/oauth2');
+    app.get('/oauth/authorize', auth.requiresLogin, oauth2.authorization, oauth2.dialog);
+    app.post('/oauth/authorize/decision', auth.requiresLogin, oauth2.server.decision());
+    app.post('/oauth/token', oauth2.token);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;These three new routes use our oauth2orize server.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/config/middlewares/oauth2.js&quot;&gt;config/middlewares/oauth2.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The server definition contains definitions for grants, exchanges, and authorization hooks for Passport and Express.&lt;/p&gt;
+
+&lt;h2 id=&quot;common-functionality&quot;&gt;Common functionality&lt;/h2&gt;
+
+&lt;p&gt;The OAuth2 code that we have added share some common functionality. We have added these shared methods in a file that you can drop into your project.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/app/lib/utils.js&quot;&gt;app/lib/utils.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These methods are used by the OAuth2 key generator.&lt;/p&gt;
+
+&lt;h2 id=&quot;testing-your-implementation&quot;&gt;Testing your implementation&lt;/h2&gt;
+
+&lt;p&gt;In order to make sure that you have set everything up correctly, we recommend that you test things out locally before deploying to a server. We have supplied a very basic Express server with which you can test your implementation before you deploy to a server somewhere.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Xorcode/mean/blob/passport-oauth/scripts/server.js&quot;&gt;scripts/server.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Create a new client and modify the OAuth2 configuration in &lt;code class=&quot;highlighter-rouge&quot;&gt;server.js&lt;/code&gt; with the key and secret of your new client.&lt;/p&gt;
+
+&lt;p&gt;This example assumes that your main mean server runs on port 3000 and that your testing server runs on port 4000.&lt;/p&gt;
+
+&lt;p&gt;Start your main server:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;DEBUG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;oauth2orize,oauth2 node server.js
+  oauth2orize register parser code request +0ms
+  oauth2orize register responder code response +2ms
+  oauth2orize register parser token request +1ms
+  oauth2orize register responder token response +0ms
+  oauth2orize register exchanger authorization_code authorization_code +0ms
+  oauth2orize register exchanger password password +1ms
+Express app started on port 3000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then start the testing server:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;scripts
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;npm install
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;NODE_DEBUG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true &lt;/span&gt;node server.js
+listening on port 4000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once the server’s up and running you can navigate to http://localhost:4000/ to test your implementation by clicking on the “Authenticate with Service” link. Clicking the link will take you to the OAuth dialog of your main mean application.&lt;/p&gt;
+
+&lt;p&gt;You should see something like this in your console log:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  oauth2orize parse:request +42s
+  oauth2orize parse:request +0ms
+  oauth2 authorization:  +0ms pEdDoXEgEpSbkAzN http://localhost:4000/callback
+  oauth2 authorization:  +3ms null &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; clientSecret: &lt;span class=&quot;s1&quot;&gt;'unpYdLS16rlS7ITa1vVOD7hwJ8ZRzTkV'&lt;/span&gt;,
+  clientKey: &lt;span class=&quot;s1&quot;&gt;'pEdDoXEgEpSbkAzN'&lt;/span&gt;,
+  name: &lt;span class=&quot;s1&quot;&gt;'Web'&lt;/span&gt;,
+  _id: 52115d123265413b29000001,
+  __v: 0,
+  created: Sun Aug 18 2013 19:47:30 GMT-0400 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;EDT&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once you click “Allow” you should be taken back to the testing server where your access token should be printed.&lt;/p&gt;
+
+&lt;p&gt;The console output on your testing server should look like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;OAuth2 Node Request
+Simple OAuth2: Making the HTTP request &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; uri: &lt;span class=&quot;s1&quot;&gt;'http://localhost:3000/oauth/token'&lt;/span&gt;,
+  method: &lt;span class=&quot;s1&quot;&gt;'POST'&lt;/span&gt;,
+  headers: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; Authorization: &lt;span class=&quot;s1&quot;&gt;'Basic cEVkRG9YRWdFcFNia0F6Tjp1bnBZZExTMTZybFM3SVRhMXZWT0Q3aHdKOFpSelRrVg=='&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+  form: 
+   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; code: &lt;span class=&quot;s1&quot;&gt;'dEErLArE919sZ38E'&lt;/span&gt;,
+     redirect_uri: &lt;span class=&quot;s1&quot;&gt;'http://localhost:4000/callback'&lt;/span&gt;,
+     grant_type: &lt;span class=&quot;s1&quot;&gt;'authorization_code'&lt;/span&gt;,
+     client_id: &lt;span class=&quot;s1&quot;&gt;'pEdDoXEgEpSbkAzN'&lt;/span&gt;,
+     secret: &lt;span class=&quot;s1&quot;&gt;'unpYdLS16rlS7ITa1vVOD7hwJ8ZRzTkV'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+Simple OAuth2: checking response body &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;access_token&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;PE6XthpfpWcc8Veu6DC6ZLJ9lwLoqljmZ10nDMvtdFHkEKbCxyvlUBLNpTKC4Vb2cNUM2kUJqJJj9djaYbrpEWAdMBJnxWzJTUiayA9I45FBwEOxGifG9R2E9x3xiXHf52F5rAYRMQdKne1qfPe8uloxNIJ23u14bupRA3W5d3JXt8zQEcXV1Rc3C8rIbIGwMPUO8MKdW2CRwk6jDp4ksMGThpK7MpYVITxrDdvpAI11CRtiyX320AZ6I5lnwv3f&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;token_type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;bearer&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You are now ready to use the access token through the Bearer strategy.&lt;/p&gt;
+
+&lt;p&gt;Our next article will explain how to secure particular parts of your application with the methods you have learned in this lesson.&lt;/p&gt;
+
+&lt;ul class=&quot;jekyll-series&quot;&gt;&lt;li&gt;&lt;a href=&quot;/code/2013/08/15/getting-started-with-node-js-using-mean.html/&quot;&gt;Getting Started with Node.js #1: Using the MEAN Stack&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;/code/2013/08/22/getting-started-with-node-js-using-oauth2-in-mean.html/&quot;&gt;Getting Started with Node.js #2: Using OAuth2 in MEAN applications&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content><author><name></name></author><category term="mean" /><category term="node.js" /><category term="oauth" /><category term="express" /><category term="passport.js" /><category term="tutorial" /><category term="series" /><summary type="html">Once you have an application based on MEAN you may want to secure the API end-points. At Xorcode we use OAuth2 for securing REST API end-points. OAuth can be cumbersome for web applications, though it is perfect for native desktop and mobile applications.</summary></entry><entry><title type="html">Supporting Liquid Templates in Wintersmith</title><link href="/code/2013/08/22/supporting-liquid-templates-in-wintersmith.html" rel="alternate" type="text/html" title="Supporting Liquid Templates in Wintersmith" /><published>2013-08-22T08:55:00-04:00</published><updated>2013-08-22T08:55:00-04:00</updated><id>/code/2013/08/22/supporting-liquid-templates-in-wintersmith</id><content type="html" xml:base="/code/2013/08/22/supporting-liquid-templates-in-wintersmith.html">&lt;p&gt;We’ve gotten used to &lt;a href=&quot;https://github.com/Shopify/liquid/&quot;&gt;Liquid&lt;/a&gt; from using &lt;a href=&quot;http://xorcode.net/13Tvyaq&quot;&gt;Jekyll&lt;/a&gt; and &lt;a href=&quot;http://xorcode.net/13TvzLx&quot;&gt;Octopress&lt;/a&gt;. When we took &lt;a href=&quot;http://xorcode.net/13TvDuX&quot;&gt;Wintersmith&lt;/a&gt; for a spin we sort of missed Liquid. So we created a template plugin for Liquid that uses the &lt;a href=&quot;http://xorcode.net/13TtSOc&quot;&gt;liquid-node&lt;/a&gt; module to render Liquid templates.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Liquid plugin for Wintersmith, uses liquid-node to take advantage of asynchronous behavior. The &lt;strong&gt;liquid-node&lt;/strong&gt; module uses Q internally and thus we can take advantage of this in our template plugin.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Template plugins for Wintersmith are quite easy to write. We published ours on &lt;a href=&quot;http://xorcode.net/13Tu00a&quot;&gt;npm&lt;/a&gt; after a few minutes after initially having been confounded by &lt;a href=&quot;http://xorcode.net/13TuZxs&quot;&gt;CoffeeScript&lt;/a&gt;. Bonus: now we know how to write CoffeeScript!&lt;/p&gt;
+
+&lt;h2 id=&quot;installation-instructions&quot;&gt;Installation instructions&lt;/h2&gt;
+
+&lt;p&gt;Navigate to the folder you created with &lt;code class=&quot;highlighter-rouge&quot;&gt;wintersmith new&lt;/code&gt; and run&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;npm install wintersmith-liquid --save
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once you have installed the plugin you need to modify your &lt;code class=&quot;highlighter-rouge&quot;&gt;config.json&lt;/code&gt; and add &lt;code class=&quot;highlighter-rouge&quot;&gt;wintersmith-liquid&lt;/code&gt; to the list of plugins for your site.&lt;/p&gt;
+
+&lt;p&gt;Templates with the &lt;code class=&quot;highlighter-rouge&quot;&gt;.html&lt;/code&gt; extensions are parsed with Liquid.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://xorcode.net/13TudAo&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;fa fa-bitbucket&quot;&gt;&lt;/i&gt; Clone wintersmith-liquid on Bitbucket&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="wintersmith" /><category term="node.js" /><category term="liquid" /><summary type="html">We’ve gotten used to Liquid from using Jekyll and Octopress. When we took Wintersmith for a spin we sort of missed Liquid. So we created a template plugin for Liquid that uses the liquid-node module to render Liquid templates.</summary></entry></feed>

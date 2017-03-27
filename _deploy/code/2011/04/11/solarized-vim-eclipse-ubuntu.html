@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Using Solarized colors with vim, Eclipse, and Ubuntu</title>
+  <meta name="description" content="We discovered Solarized by Ethan Schoonover and instantly fell in love with its “precision colors for machines and people.” Having read up on its properties ...">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/code/2011/04/11/solarized-vim-eclipse-ubuntu.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Using Solarized colors with vim, Eclipse, and Ubuntu</h1>
+    <p class="date post-meta"><time datetime="2011-04-11T16:59:17-04:00" itemprop="datePublished">Apr 11, 2011</time></p>
+    <p>We discovered <a href="http://xorcode.net/ejFgVg">Solarized</a> by Ethan Schoonover and instantly fell in love with its <em>“precision colors for machines and people.”</em> Having read up on its properties and unique features we decided to try to make our Ubuntu systems use it as extensively as possible.</p>
+
+<!--more-->
+
+<blockquote>
+  <p><img src="/uploads/2011/04/solarized-yinyang-150x150.png" class="pull-right" /> Solarized is a sixteen color palette (eight monotones, eight accent colors) designed for use with terminal and gui applications. It has several <a href="http://xorcode.net/fK0voM">unique properties</a>. Ethan Schoonover designed this colorscheme with both precise <a href="http://xorcode.net/ezzkDl">CIELAB</a> lightness relationships and a refined set of hues based on fixed color wheel relationships.</p>
+</blockquote>
+
+<p><a href="http://xorcode.net/ejFgVg">Solarized</a> comes with color profiles for Mac OS X, Vim, Mutt, as well as with color palettes for Adobe Photoshop, Apple Color Picker, and GIMP.</p>
+
+<p><a class="btn btn-primary" href="http://ethanschoonover.com/solarized/files/solarized.zip"><i class="fa fa-download"></i> Download Solarized</a></p>
+
+<p><img src="/uploads/2011/04/solarized-vim.png" alt="Solarized Explained" /></p>
+
+<blockquote>
+  <p>Solarized works as a sixteen color palette for compatibility with common terminal based applications / emulators. In addition, it has been carefull designed to scale down to a variety of five color palettes (four base monotones plus one accent color) for use in design work such as web design. In every case it retains a strong personality but doesn’t overwhelm.</p>
+</blockquote>
+
+<h2 id="gnome-terminal">Gnome Terminal</h2>
+
+<h3 id="new-method">New method</h3>
+
+<p><span class="label label-info">Updated</span> Jeff from Codefork.com supplied a shell script version of Tim Martin’s script that will set your terminal colors to Solarized dark or light from the command line. Save the contents of this gist as solarize.sh:</p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/1397104/solarize.sh.js"> </script>
+
+<p><span class="label label-info">Fork</span> MontagueRanjel left a comment with an updated version of Jeff’s script that allows you to unset the changes made to your terminal configuration:</p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/2660659/mate-term-solarize.sh.js"> </script>
+
+<p>Before running this script please make a new copy of your current terminal profile in the “Edit” &gt; “Profiles” menu in case you want to switch back later. To use this script, paste this file into your home folder as <code class="highlighter-rouge">solarize.sh</code> and then run <code class="highlighter-rouge">chmod +x solarize.sh</code>.</p>
+
+<h2 id="vim">Vim</h2>
+
+<p>Close down Vim and copy the <code class="highlighter-rouge">solarized.vim</code> file into your Vim settings directory:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir -p ~/.vim/colors; cp solarized.vim ~/.vim/colors
+</code></pre>
+</div>
+
+<p>Now open up your Vim configuration file:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>vim ~/.vimrc
+</code></pre>
+</div>
+
+<p>Add the following to the top of the file:</p>
+
+<div class="language-vim highlighter-rouge"><pre class="highlight"><code>syntax enable
+<span class="k">if</span> has<span class="p">(</span><span class="s1">'gui_running'</span><span class="p">)</span>
+    <span class="k">set</span> background<span class="p">=</span><span class="nb">light</span>
+<span class="k">else</span>
+    <span class="k">set</span> background<span class="p">=</span><span class="nb">dark</span>
+<span class="k">endif</span>
+<span class="k">set</span> t_Co<span class="p">=</span><span class="m">16</span>
+<span class="k">let</span> <span class="nv">g:solarized_termcolors</span><span class="p">=</span><span class="m">16</span>
+<span class="k">colorscheme</span> solarized
+</code></pre>
+</div>
+
+<h2 id="eclipse">Eclipse</h2>
+
+<p>Eclipse requires you to download the Eclipse Color Theme plug-in before you can use the Solarized theme.</p>
+
+<p><a class="btn btn-primary" href="http://xorcode.net/dSgWwf"><i class="fa fa-download"></i> Download Eclipse Color Theme</a></p>
+
+<p>Once you have downloaded and installed the Eclipse plug-in you can download the Solarized Dark and Solarized Light themes.</p>
+
+<p><a class="btn btn-primary" href="http://xorcode.net/h0Op38"><i class="fa fa-download"></i> Solarized Dark Theme</a></p>
+
+<p><a class="btn btn-primary" href="http://xorcode.net/fL6Jps"><i class="fa fa-download"></i> Solarized Light Theme</a></p>
+
+<p>Several other syntax highlighters and adaptations of Ethan’s Solarized exist, if you cannot find a scheme for your tool of choice, make your own and let Ethan know what you have contributed!</p>
+
+<p><span class="label label-info">Kudos!</span> Thanks to <em>Otis Bean</em> for pointing out that using <code class="highlighter-rouge">gconf-editor</code> is the right way to go about editing configuration files.</p>
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

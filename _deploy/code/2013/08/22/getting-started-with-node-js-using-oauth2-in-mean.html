@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Getting Started with Node.js #2: Using OAuth2 in MEAN applications</title>
+  <meta name="description" content="Once you have an application based on MEAN you may want to secure the API end-points. At Xorcode we use OAuth2 for securing REST API end-points. OAuth can be...">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/code/2013/08/22/getting-started-with-node-js-using-oauth2-in-mean.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Getting Started with Node.js #2: Using OAuth2 in MEAN applications</h1>
+    <p class="date post-meta"><time datetime="2013-08-22T10:48:00-04:00" itemprop="datePublished">Aug 22, 2013</time></p>
+    <p>Once you have an application based on <a href="http://xorcode.net/17N7RmC">MEAN</a> you may want to secure the <abbr title="Application Programming Interface">API</abbr> end-points. At Xorcode we use <a href="http://xorcode.net/17N7SH8">OAuth2</a> for securing <abbr title="REpresentational State Transfer">REST</abbr> API end-points. OAuth can be cumbersome for web applications, though it is perfect for native desktop and mobile applications.</p>
+
+<!--more-->
+
+<p class="alert alert-info">This article would not exist if it wasn't for <strong>willwh</strong> from the <strong>#node.js</strong> channel on <a href="http://xorcode.net/17N68O4">FreeNode</a> who asked how to connect MEAN to an iOS application.</p>
+
+<p>In order to make this tutorial lesson easier to understand we have created a branch of MEAN which you can checkout and toy around with.</p>
+
+<p><a href="http://xorcode.net/1av99Yo" class="btn btn-primary"><i class="fa fa-github"></i> Clone our MEAN repository</a></p>
+
+<p>In order to use OAuth2 with MEAN we first need to modify <code class="highlighter-rouge">package.json</code> to include the relevant Node.js modules that we need to use in order to enable support for OAuth authentication.</p>
+
+<p>```javascript package.json
+“dependencies”: {
+  // …
+  “passport-http”: “latest”,
+  “passport-http-bearer”: “latest”,
+  “passport-oauth2-client-password”: “latest”,
+  “oauth2orize”: “latest”,
+  “debug”: “~0.7.2”
+  // …
+}</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+We also added the debug module since it's used by **oauth2orize** and we decided to use the same pattern for our additions to mean.
+
+Update the dependencies in your mean project:
+
+```sh
+$ npm install
+</code></pre>
+</div>
+
+<h2 id="creating-supporting-models">Creating supporting Models</h2>
+
+<p>OAuth needs to store tokens somewhere so we’ll create the required Mongoose schemas for use with oauth2orize and Passport.</p>
+
+<ul>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/app/models/oauth_client.js">app/models/oauth_client.js</a></li>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/app/models/access_token.js">app/models/access_token.js</a></li>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/app/models/request_token.js">app/models/request_token.js</a></li>
+</ul>
+
+<p>The <strong>OAuthClient</strong> model serves as the foundation of this data structure. Each <strong>AccessToken</strong> and <strong>RequestToken</strong> is bound to a client and a user. When a client (web/mobile/desktop) requests permissions to access a user’s data, it identifies itself with its key.</p>
+
+<p>RequestTokens are used during the interchange between the client and the server as a request for an AccessToken takes place.</p>
+
+<p>AccessTokens are the final result of the OAuth2 transaction. They serve as the “password” used by the client to access the user’s data.</p>
+
+<h2 id="adding-crud-for-oauth-clients">Adding CRUD for OAuth Clients</h2>
+
+<p>The only part of OAuth that our application’s users can directly interact with are the Clients. In Twitter and Facebook terms, these are “Applications.” We have created the necessary scaffolds for you:</p>
+
+<ul>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/config/middlewares/authorization.js">config/middlewares/authentication.js</a></li>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/app/controllers/clients.js">app/controllers/clients.js</a></li>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/public/js/controllers/clients.js">public/js/controllers/clients.js</a></li>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/public/js/services/clients.js">public/js/services/clients.js</a></li>
+</ul>
+
+<p>These controllers with their accompanying views are basic. Feel free to modify them to your needs. You may for instance want to add verification of the redirect URI by adding a <code class="highlighter-rouge">redirectUri</code> field to the OAuthClient schema, that way you can ensure that clients cannot be used to redirect to a site that may have nefarious intent.</p>
+
+<p>We also need to modify some existing files in mean:</p>
+
+<ul>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/public/js/config.js">public/js/config.js</a></li>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/public/js/controllers/header.js">public/js/controllers/header.js</a></li>
+</ul>
+
+<p>This will set up our client-side routes and make sure that the application responds properly when we want to edit/view clients.</p>
+
+<ul>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/config/routes.js">config/routes.js</a></li>
+</ul>
+
+<p>Finally we need to add some routes to our router.</p>
+
+<p>```javascript config/routes.js
+    //Client Routes
+    var clients = require(‘../app/controllers/clients’);
+    app.get(‘/clients’, clients.all);
+    app.post(‘/clients’, auth.requiresLogin, clients.create);
+    app.get(‘/clients/:clientId’, clients.show);
+    app.put(‘/clients/:clientId’, auth.requiresLogin, auth.client.hasAuthorization, clients.update);
+    app.del(‘/clients/:clientId’, auth.requiresLogin, auth.client.hasAuthorization, clients.destroy);</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>
+Once we have this up and running, we're ready to create clients.
+
+## The OAuth2 Permissions Dialog
+
+Once a user wants to connect to our service from somewhere -- like a mobile application -- we need to get their permission first.
+
+- [app/views/oauth/dialog.jade](https://github.com/Xorcode/mean/blob/passport-oauth/app/views/oauth/dialog.jade)
+
+If you are familiar with Twitter or Facebook, you know that these sites ask for your permission when you want to connect them to another site or application. We will do the same for our users.
+
+## OAuth2 Express Middleware
+
+In order to integrate OAuth2 into our application we need to make several modifications to existing files as well as add a few new files. First up we will modify our Passport middleware.
+
+- [config/passport.js](https://github.com/Xorcode/mean/blob/passport-oauth/config/passport.js)
+
+We need to add Passport strategies for basic authentication, client password authentication, and bearer authentication.
+
+- [config/routes.js](https://github.com/Xorcode/mean/blob/passport-oauth/config/routes.js)
+
+Once we have added the passport strategies, we need to add a few new routes to allow clients to interact with our OAuth end-points.
+
+```javascript config/routes.js
+    var oauth2 = require('./middlewares/oauth2');
+    app.get('/oauth/authorize', auth.requiresLogin, oauth2.authorization, oauth2.dialog);
+    app.post('/oauth/authorize/decision', auth.requiresLogin, oauth2.server.decision());
+    app.post('/oauth/token', oauth2.token);
+</code></pre>
+</div>
+
+<p>These three new routes use our oauth2orize server.</p>
+
+<ul>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/config/middlewares/oauth2.js">config/middlewares/oauth2.js</a></li>
+</ul>
+
+<p>The server definition contains definitions for grants, exchanges, and authorization hooks for Passport and Express.</p>
+
+<h2 id="common-functionality">Common functionality</h2>
+
+<p>The OAuth2 code that we have added share some common functionality. We have added these shared methods in a file that you can drop into your project.</p>
+
+<ul>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/app/lib/utils.js">app/lib/utils.js</a></li>
+</ul>
+
+<p>These methods are used by the OAuth2 key generator.</p>
+
+<h2 id="testing-your-implementation">Testing your implementation</h2>
+
+<p>In order to make sure that you have set everything up correctly, we recommend that you test things out locally before deploying to a server. We have supplied a very basic Express server with which you can test your implementation before you deploy to a server somewhere.</p>
+
+<ul>
+  <li><a href="https://github.com/Xorcode/mean/blob/passport-oauth/scripts/server.js">scripts/server.js</a></li>
+</ul>
+
+<p>Create a new client and modify the OAuth2 configuration in <code class="highlighter-rouge">server.js</code> with the key and secret of your new client.</p>
+
+<p>This example assumes that your main mean server runs on port 3000 and that your testing server runs on port 4000.</p>
+
+<p>Start your main server:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nv">DEBUG</span><span class="o">=</span>oauth2orize,oauth2 node server.js
+  oauth2orize register parser code request +0ms
+  oauth2orize register responder code response +2ms
+  oauth2orize register parser token request +1ms
+  oauth2orize register responder token response +0ms
+  oauth2orize register exchanger authorization_code authorization_code +0ms
+  oauth2orize register exchanger password password +1ms
+Express app started on port 3000
+</code></pre>
+</div>
+
+<p>Then start the testing server:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>scripts
+<span class="gp">$ </span>npm install
+<span class="gp">$ </span><span class="nv">NODE_DEBUG</span><span class="o">=</span><span class="nb">true </span>node server.js
+listening on port 4000
+</code></pre>
+</div>
+
+<p>Once the server’s up and running you can navigate to http://localhost:4000/ to test your implementation by clicking on the “Authenticate with Service” link. Clicking the link will take you to the OAuth dialog of your main mean application.</p>
+
+<p>You should see something like this in your console log:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>  oauth2orize parse:request +42s
+  oauth2orize parse:request +0ms
+  oauth2 authorization:  +0ms pEdDoXEgEpSbkAzN http://localhost:4000/callback
+  oauth2 authorization:  +3ms null <span class="o">{</span> clientSecret: <span class="s1">'unpYdLS16rlS7ITa1vVOD7hwJ8ZRzTkV'</span>,
+  clientKey: <span class="s1">'pEdDoXEgEpSbkAzN'</span>,
+  name: <span class="s1">'Web'</span>,
+  _id: 52115d123265413b29000001,
+  __v: 0,
+  created: Sun Aug 18 2013 19:47:30 GMT-0400 <span class="o">(</span>EDT<span class="o">)</span> <span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Once you click “Allow” you should be taken back to the testing server where your access token should be printed.</p>
+
+<p>The console output on your testing server should look like this:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>OAuth2 Node Request
+Simple OAuth2: Making the HTTP request <span class="o">{</span> uri: <span class="s1">'http://localhost:3000/oauth/token'</span>,
+  method: <span class="s1">'POST'</span>,
+  headers: <span class="o">{</span> Authorization: <span class="s1">'Basic cEVkRG9YRWdFcFNia0F6Tjp1bnBZZExTMTZybFM3SVRhMXZWT0Q3aHdKOFpSelRrVg=='</span> <span class="o">}</span>,
+  form: 
+   <span class="o">{</span> code: <span class="s1">'dEErLArE919sZ38E'</span>,
+     redirect_uri: <span class="s1">'http://localhost:4000/callback'</span>,
+     grant_type: <span class="s1">'authorization_code'</span>,
+     client_id: <span class="s1">'pEdDoXEgEpSbkAzN'</span>,
+     secret: <span class="s1">'unpYdLS16rlS7ITa1vVOD7hwJ8ZRzTkV'</span> <span class="o">}</span> <span class="o">}</span>
+Simple OAuth2: checking response body <span class="o">{</span><span class="s2">"access_token"</span>:<span class="s2">"PE6XthpfpWcc8Veu6DC6ZLJ9lwLoqljmZ10nDMvtdFHkEKbCxyvlUBLNpTKC4Vb2cNUM2kUJqJJj9djaYbrpEWAdMBJnxWzJTUiayA9I45FBwEOxGifG9R2E9x3xiXHf52F5rAYRMQdKne1qfPe8uloxNIJ23u14bupRA3W5d3JXt8zQEcXV1Rc3C8rIbIGwMPUO8MKdW2CRwk6jDp4ksMGThpK7MpYVITxrDdvpAI11CRtiyX320AZ6I5lnwv3f"</span>,<span class="s2">"token_type"</span>:<span class="s2">"bearer"</span><span class="o">}</span>
+</code></pre>
+</div>
+
+<p>You are now ready to use the access token through the Bearer strategy.</p>
+
+<p>Our next article will explain how to secure particular parts of your application with the methods you have learned in this lesson.</p>
+
+<ul class="jekyll-series"><li><a href="/code/2013/08/15/getting-started-with-node-js-using-mean.html/">Getting Started with Node.js #1: Using the MEAN Stack</a></li><li class="active"><a href="/code/2013/08/22/getting-started-with-node-js-using-oauth2-in-mean.html/">Getting Started with Node.js #2: Using OAuth2 in MEAN applications</a></li></ul>
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

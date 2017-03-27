@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Web Servers in AWS: Performance Tune Apache 2.x</title>
+  <meta name="description" content="Help determine your Apache ServerLimit and MaxClients for your specific server configuration to ensure that your instance runs smoothly.">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/cloud/server/2013/01/09/performance-tune-apache-2x.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Web Servers in AWS: Performance Tune Apache 2.x</h1>
+    <p class="date post-meta"><time datetime="2013-01-09T00:00:00-05:00" itemprop="datePublished">Jan 9, 2013</time></p>
+    <p>Help determine your Apache <code class="highlighter-rouge">ServerLimit</code> and <code class="highlighter-rouge">MaxClients</code> for your specific server configuration to ensure that your instance runs smoothly.</p>
+
+<!--more-->
+
+<p>Oftentimes when we fire up a new AWS instance we use the <em>t1.micro</em> type. The default Apache configuration does not take the limited resources of this instance type into account. The <em>t1.micro</em> instances also come without a swap partition which may cause trouble once your instance run out of RAM. If you are running MySQL or memcached on the same server you will sooner or later notice that MySQL has stopped responding because the operating system killed it.</p>
+
+<p>Use the following simple script to determine your Apache <code class="highlighter-rouge">ServerLimit</code> and <code class="highlighter-rouge">MaxClients</code>:</p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/4496984/check-apache-instances.sh.js"> </script>
+
+<p>The script will output something similar to this:</p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/4496984/shell-output.txt.js"> </script>
+
+<p>You would then modify your Apache configuration accordingly:</p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/4496984/httpd.conf.js"> </script>
+
+<p>The above configuration excerpt assumes that you are using <code class="highlighter-rouge">mod_prefork</code> and that you want to keep some free RAM for other processes such as MySQL.</p>
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

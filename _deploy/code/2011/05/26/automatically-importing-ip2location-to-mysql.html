@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Automatically importing IP2Location to MySQL</title>
+  <meta name="description" content="Have you ever found that you need to know where in the world a user happens to browse from? We did, and we tried several API services that proved to be unrel...">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/code/2011/05/26/automatically-importing-ip2location-to-mysql.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Automatically importing IP2Location to MySQL</h1>
+    <p class="date post-meta"><time datetime="2011-05-26T15:23:06-04:00" itemprop="datePublished">May 26, 2011</time></p>
+    <p>Have you ever found that you need to know where in the world a user happens to browse from? We did, and we tried several API services that proved to be unreliable and also created overhead when an API call was placed for each visitor of the site.</p>
+
+<!--more-->
+
+<blockquote>
+  <p><img src="/uploads/2011/05/globe-150x150.png" class="pull-right" /> <a href="http://xorcode.net/jdBHWg">IP2Location</a> is a geo IP solution to help you to identify visitor’s geographical location, such as country, region, city, latitude, longitude, ZIP code, time zone, connection speed, ISP and domain name, IDD country code, area code, weather station code and name, and mobile carrier information using a proprietary IP address lookup database and technology without invading the Internet user’s privacy.</p>
+</blockquote>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li><a href="http://xorcode.net/jBkXxG">PHP 5.3.x</a></li>
+  <li><a href="http://xorcode.net/lm0zQC">Zend Framework 1.11.x</a></li>
+</ul>
+
+<h3 id="import-script">Import Script</h3>
+
+<p>The following simple script utilizes straight MySQL calls instead of using any kind of Zend DB functionality. As an exercise to the reader you could insert calls to Doctrine or Zend DB here instead. We will be using <a href="http://xorcode.net/lhFyOz" target="_blank">Zend_Filter_Decompress</a> to extract the information from the archive file being downloaded.</p>
+
+<p>We will download the free version of the <a href="http://xorcode.net/lAyPsB">IP database</a>, which requires that you have <a href="http://xorcode.net/jfZKkW">set up an API key</a> by registering.</p>
+
+<p><strong>import.php</strong></p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'TEMP_DIR'</span><span class="p">,</span> <span class="nb">sys_get_temp_dir</span><span class="p">()</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">'ipinfodb'</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'API_KEY'</span><span class="p">,</span> <span class="s1">'INSERT_YOUR_API_KEY_HERE'</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'DATABASE_URL'</span><span class="p">,</span> <span class="s1">'http://lite.ip2location.com/?file=IP2LOCATION-LITE-DB9.CSV.ZIP&amp;key='</span> <span class="o">.</span> <span class="nx">API_KEY</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'ARCHIVE_FILE'</span><span class="p">,</span> <span class="nx">TEMP_DIR</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">'ip2location.zip'</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'DATABASE_FILE'</span><span class="p">,</span> <span class="nx">TEMP_DIR</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">'IP2LOCATION-LITE-DB9.CSV'</span><span class="p">);</span>
+
+<span class="nb">define</span><span class="p">(</span><span class="s1">'DATABASE_HOST'</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'DATABASE_NAME'</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'DATABASE_USER'</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'DATABASE_PASS'</span><span class="p">,</span> <span class="s1">''</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'DATABASE_TABLE'</span><span class="p">,</span> <span class="s1">'ipinfodb'</span><span class="p">);</span>
+
+<span class="c1">// "16778240","16779263","AU","AUSTRALIA","QUEENSLAND","MILTON","-35.316667","150.433333","-"
+</span><span class="nb">define</span><span class="p">(</span><span class="s1">'FIELD_IP_START'</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'FIELD_IP_END'</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'FIELD_COUNTRY_CODE'</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'FIELD_COUNTRY_NAME'</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'FIELD_STATE'</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'FIELD_CITY'</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'FIELD_LATITUDE'</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'FIELD_LONGITUDE'</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+<span class="nb">define</span><span class="p">(</span><span class="s1">'FIELD_ZIP'</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+
+<span class="nv">$field_map</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+	<span class="nx">FIELD_IP_START</span> <span class="o">=&gt;</span> <span class="s1">'ip_start'</span><span class="p">,</span>
+	<span class="nx">FIELD_IP_END</span> <span class="o">=&gt;</span> <span class="s1">'ip_end'</span><span class="p">,</span>
+	<span class="nx">FIELD_COUNTRY_CODE</span> <span class="o">=&gt;</span> <span class="s1">'country_code'</span><span class="p">,</span>
+	<span class="nx">FIELD_COUNTRY_NAME</span> <span class="o">=&gt;</span> <span class="s1">'country_name'</span><span class="p">,</span>
+	<span class="nx">FIELD_STATE</span> <span class="o">=&gt;</span> <span class="s1">'state'</span><span class="p">,</span>
+	<span class="nx">FIELD_CITY</span> <span class="o">=&gt;</span> <span class="s1">'city'</span><span class="p">,</span>
+	<span class="nx">FIELD_LATITUDE</span> <span class="o">=&gt;</span> <span class="s1">'latitude'</span><span class="p">,</span>
+	<span class="nx">FIELD_LONGITUDE</span> <span class="o">=&gt;</span> <span class="s1">'longitude'</span><span class="p">,</span>
+	<span class="nx">FIELD_ZIP</span> <span class="o">=&gt;</span> <span class="s1">'zipcode'</span>
+<span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">file_exists</span><span class="p">(</span><span class="nx">TEMP_DIR</span><span class="p">))</span> <span class="p">{</span>
+	<span class="nb">mkdir</span><span class="p">(</span><span class="nx">TEMP_DIR</span><span class="p">,</span> <span class="mo">0777</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">file_exists</span><span class="p">(</span><span class="nx">DATABASE_FILE</span><span class="p">))</span> <span class="p">{</span>
+	<span class="k">require_once</span> <span class="s1">'Zend/Filter/Decompress.php'</span><span class="p">;</span>
+	<span class="nv">$zip</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Filter_Decompress</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+		<span class="s1">'adapter'</span> <span class="o">=&gt;</span> <span class="s1">'Zip'</span><span class="p">,</span>
+		<span class="s1">'options'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+			<span class="s1">'target'</span> <span class="o">=&gt;</span> <span class="nx">TEMP_DIR</span>
+		<span class="p">)</span>
+	<span class="p">));</span>
+
+	<span class="nv">$archive</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="nx">DATABASE_URL</span><span class="p">);</span>
+	<span class="nb">file_put_contents</span><span class="p">(</span><span class="nx">ARCHIVE_FILE</span><span class="p">,</span> <span class="nv">$archive</span><span class="p">,</span> <span class="nx">LOCK_EX</span><span class="p">);</span>
+	<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$zip</span><span class="o">-&gt;</span><span class="na">filter</span><span class="p">(</span><span class="nx">ARCHIVE_FILE</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">((</span><span class="nv">$handle</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nx">DATABASE_FILE</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">))</span> <span class="o">!==</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nv">$db</span> <span class="o">=</span> <span class="nb">mysql_connect</span><span class="p">(</span><span class="nx">DATABASE_HOST</span><span class="p">,</span> <span class="nx">DATABASE_USER</span><span class="p">,</span> <span class="nx">DATABASE_PASS</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$db</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">die</span><span class="p">(</span><span class="s1">'Could not connect: '</span> <span class="o">.</span> <span class="nb">mysql_error</span><span class="p">());</span>
+	<span class="p">}</span>
+	<span class="nv">$result</span> <span class="o">=</span> <span class="nb">mysql_select_db</span><span class="p">(</span><span class="nx">DATABASE_NAME</span><span class="p">,</span> <span class="nv">$db</span><span class="p">);</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">die</span><span class="p">(</span><span class="s1">'Could not select database: '</span> <span class="o">.</span> <span class="nb">mysql_error</span><span class="p">());</span>
+	<span class="p">}</span>
+	<span class="nv">$row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">while</span> <span class="p">((</span><span class="nv">$data</span> <span class="o">=</span> <span class="nb">fgetcsv</span><span class="p">(</span><span class="nv">$handle</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">','</span><span class="p">))</span> <span class="o">!==</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nv">$fields</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+		<span class="nv">$values</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+		<span class="k">foreach</span> <span class="p">(</span><span class="nv">$field_map</span> <span class="k">as</span> <span class="nv">$num</span> <span class="o">=&gt;</span> <span class="nv">$field</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nv">$fields</span><span class="p">[</span><span class="nv">$num</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">'`%s`'</span><span class="p">,</span> <span class="nv">$field</span><span class="p">);</span>
+			<span class="nv">$values</span><span class="p">[</span><span class="nv">$num</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">"'%s'"</span><span class="p">,</span> <span class="nb">mysql_real_escape_string</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="nv">$num</span><span class="p">]));</span>
+		<span class="p">}</span>
+		<span class="nv">$result</span> <span class="o">=</span> <span class="nb">mysql_query</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s1">'INSERT INTO `%s` (%s) VALUES(%s)'</span><span class="p">,</span> <span class="nx">DATABASE_TABLE</span><span class="p">,</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span> <span class="nv">$fields</span><span class="p">),</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span> <span class="nv">$values</span><span class="p">)),</span> <span class="nv">$db</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$result</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">die</span><span class="p">(</span><span class="s1">'Invalid query: '</span> <span class="o">.</span> <span class="nb">mysql_error</span><span class="p">());</span>
+		<span class="p">}</span>
+		<span class="nv">$row</span><span class="o">++</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="nb">printf</span><span class="p">(</span><span class="s1">'Imported %d rows.'</span><span class="p">,</span> <span class="nv">$row</span><span class="p">);</span>
+	<span class="nb">fclose</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
+	<span class="nb">mysql_close</span><span class="p">(</span><span class="nv">$db</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="k">die</span><span class="p">(</span><span class="s1">'Could not open database file: '</span> <span class="o">.</span> <span class="nx">DATABASE_FILE</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+</div>
+
+<p>The above script gives you a database table that you can query like this:</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">'SELECT * FROM ipinfodb WHERE ip_start &lt;= %d ORDER BY ip_start DESC LIMIT 1'</span><span class="p">,</span> <span class="nb">ip2long</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REMOTE_ADDR'</span><span class="p">]));</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+</div>
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

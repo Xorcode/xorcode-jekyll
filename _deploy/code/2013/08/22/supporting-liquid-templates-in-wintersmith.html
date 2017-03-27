@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Supporting Liquid Templates in Wintersmith</title>
+  <meta name="description" content="We’ve gotten used to Liquid from using Jekyll and Octopress. When we took Wintersmith for a spin we sort of missed Liquid. So we created a template plugin fo...">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/code/2013/08/22/supporting-liquid-templates-in-wintersmith.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Supporting Liquid Templates in Wintersmith</h1>
+    <p class="date post-meta"><time datetime="2013-08-22T08:55:00-04:00" itemprop="datePublished">Aug 22, 2013</time></p>
+    <p>We’ve gotten used to <a href="https://github.com/Shopify/liquid/">Liquid</a> from using <a href="http://xorcode.net/13Tvyaq">Jekyll</a> and <a href="http://xorcode.net/13TvzLx">Octopress</a>. When we took <a href="http://xorcode.net/13TvDuX">Wintersmith</a> for a spin we sort of missed Liquid. So we created a template plugin for Liquid that uses the <a href="http://xorcode.net/13TtSOc">liquid-node</a> module to render Liquid templates.</p>
+
+<!--more-->
+
+<blockquote>
+  <p>Liquid plugin for Wintersmith, uses liquid-node to take advantage of asynchronous behavior. The <strong>liquid-node</strong> module uses Q internally and thus we can take advantage of this in our template plugin.</p>
+</blockquote>
+
+<p>Template plugins for Wintersmith are quite easy to write. We published ours on <a href="http://xorcode.net/13Tu00a">npm</a> after a few minutes after initially having been confounded by <a href="http://xorcode.net/13TuZxs">CoffeeScript</a>. Bonus: now we know how to write CoffeeScript!</p>
+
+<h2 id="installation-instructions">Installation instructions</h2>
+
+<p>Navigate to the folder you created with <code class="highlighter-rouge">wintersmith new</code> and run</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install wintersmith-liquid --save
+</code></pre>
+</div>
+
+<p>Once you have installed the plugin you need to modify your <code class="highlighter-rouge">config.json</code> and add <code class="highlighter-rouge">wintersmith-liquid</code> to the list of plugins for your site.</p>
+
+<p>Templates with the <code class="highlighter-rouge">.html</code> extensions are parsed with Liquid.</p>
+
+<p><a href="http://xorcode.net/13TudAo" class="btn btn-primary"><i class="fa fa-bitbucket"></i> Clone wintersmith-liquid on Bitbucket</a></p>
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>AWS PaaS: Running Node.js with Dokku on an Ubuntu instance</title>
+  <meta name="description" content="After having tried several fully featured PaaS stacks such as Nodejitsu, Heroku, and OpenShift we decided to roll our own simple PaaS stack with Dokku and AWS.">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/cloud/server/2013/07/28/running-node-js-with-dokku-on-an-ubuntu-instance.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">AWS PaaS: Running Node.js with Dokku on an Ubuntu instance</h1>
+    <p class="date post-meta"><time datetime="2013-07-28T11:48:00-04:00" itemprop="datePublished">Jul 28, 2013</time></p>
+    <p>After having tried several fully featured <abbr title="Platform As A Service">PaaS</abbr> stacks such as <a href="http://bit.ly/17Ng4b7">Nodejitsu</a>, <a href="http://bit.ly/18LaDhq">Heroku</a>, and <a href="http://red.ht/17Ng6Q3">OpenShift</a> we decided to roll our own simple PaaS stack with <a href="http://bit.ly/18LaDhr">Dokku</a> and <a href="http://amzn.to/17Ng6Q4">AWS</a>.</p>
+
+<!--more-->
+
+<blockquote>
+  <p>Docker powered mini-Heroku. The smallest PaaS implementation you’ve ever seen.</p>
+</blockquote>
+
+<p>During our initial testing we started out with a <em>t1.micro</em> instance, which seemed sufficient for development needs. The instance consumes a constant 100% CPU during operation, yet the different services respond in a timely fashion with a few megabytes of RAM to spare with two to three applications running. Definitely not the configuration we would use for a production environment.</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<div class="alert alert-error"><i class="icon-warning-sign"></i> Dokku requires the host name of the server to properly resolve or it will not install the necessary <code>VHOST</code> records. You can use any <abbr title="Fully Qualified Domain Name">FQDN</abbr> that will resolve using <code>dig +short $HOSTNAME</code> on your instance.</div>
+
+<p>The domain you use for your Dokku server needs to support wildcard sub-domains.</p>
+
+<p>An example has been provided below:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>example.org    A     &lt;Elastic IP&gt;
+*              A     &lt;Elastic IP&gt;
+</code></pre>
+</div>
+
+<p>Your server also needs to be able to respond to port 80, make sure that the Security Group for the server includes a rule that opens port 80 to <code class="highlighter-rouge">0.0.0.0/0</code> to ensure a proper working server.</p>
+
+<h3 id="creating-aws-instance">Creating AWS Instance</h3>
+
+<p>Instantiate a new <abbr title="Amazon Web Services">AWS</abbr> instance using the Ubuntu 13.04 image. Once this process completes, go ahead and log into the instance via <abbr title="Secure SHell">SSH</abbr> as the user <strong>ubuntu</strong>.</p>
+
+<p>Also create a new Elastic IP and assign it to your newly created instance. Modify your DNS as described above to point both the bare domain as well as the wildcard sub domain to the assigned Elastic IP.</p>
+
+<p>Set <code class="highlighter-rouge">/etc/hostname</code> to this domain name and make sure to also change the server host name.</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo cat <span class="s2">"example.org"</span> &gt; /etc/hostname
+<span class="gp">$ </span>sudo hostname example.org
+</code></pre>
+</div>
+
+<h3 id="installing-dokku">Installing Dokku</h3>
+
+<p>After following the steps above, run the following command line script as the user <strong>ubuntu</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>wget -qO- https://raw.github.com/progrium/dokku/master/bootstrap.sh | sudo bash
+</code></pre>
+</div>
+
+<p>Dokku will begin installation, a process which usually takes less than five minutes to complete.</p>
+
+<p>Once installation completes, Dokku will notify you to create a git key. Open a new terminal window on your local machine. Determine which SSH key to use for authentication. Most systems use either <code class="highlighter-rouge">id_dsa</code> or <code class="highlighter-rouge">id_rsa</code> by default.</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat ~/.ssh/id_rsa.pub | ssh example.org <span class="s2">"sudo gitreceive upload-key example"</span>
+</code></pre>
+</div>
+
+<p>Once you have added your key to the Dokku server you are ready to deploy your first application to your new PaaS!</p>
+
+<h3 id="deploying-nodejs-to-dokku">Deploying Node.js to Dokku</h3>
+
+<p>Dokku supports Node.js as well as several other <a href="http://bit.ly/18LdWoK">buildpacks</a>. In order to deploy your application to your Dokku instance follow these simple steps.</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd </span>node-js-sample
+<span class="gp">$ </span>git remote add example git@example.org:node-js-app
+<span class="gp">$ </span>git push example master
+</code></pre>
+</div>
+
+<p>This will initialize the deployment process and bootstrap your Node.js application on your Dokku server.</p>
+
+<p>Once your application has been deployed, it will start responding on <strong>http://node-js-app.example.org</strong>.</p>
+
+<p>Please see the <a href="http://bit.ly/18LaDhr">Dokku</a> project on Github for more information.</p>
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

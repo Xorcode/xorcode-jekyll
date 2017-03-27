@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Magento: Generic URL Rewrite Importer</title>
+  <meta name="description" content="Ever needed to import a large set of generic URL rewrites into Magento? The Generic URL Rewrite Importer for Magento helps you do just that! Xorcode just mov...">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/code/2013/09/15/magento-generic-url-rewrite-importer.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Magento: Generic URL Rewrite Importer</h1>
+    <p class="date post-meta"><time datetime="2013-09-15T12:26:00-04:00" itemprop="datePublished">Sep 15, 2013</time></p>
+    <p>Ever needed to import a large set of generic URL rewrites into Magento? The Generic URL Rewrite Importer for Magento helps you do just that!
+<!--more-->
+Xorcode just moved a sizable e-commerce site from <a href="http://xorcode.net/193sDO2">WordPress</a>/<a href="http://xorcode.net/193sCtt">WooCommerce</a> to <a href="http://xorcode.net/1efkdKU">Magento</a>. We faced the daunting task of creating over 20,000 URL rewrites since the URL slug structure of Magento ended up being slightly different from what WordPress created.</p>
+
+<p>Manually entering 20,000+ URL rewrites didn’t sound like fun, so we looked at other options. We could buy an extension, or we could write our own for this specific task. We choose to roll our own. Since we wrote it, we’ll share it with you, for free. If you use it and like it, you can always <a href="https://flattr.com/profile/xorcode">Flattr</a> this article, or send us a donation with PayPal.</p>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="SADU3WX2H6CFY" />
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+</form>
+
+<h3 id="usage">Usage</h3>
+
+<p>Install the extension in your Magento site by logging into your admin panel and going to <em>Magento Connect Manager</em>, which is under the <em>System</em> menu. Once there, use the <strong>Direct package file upload</strong> option and upload the package file supplied with this article.</p>
+
+<p><a href="http://xorcode.net/1bwM9dc" class="btn btn-primary"><i class="fa fa-download"></i> Download URL Rewrite Importer</a></p>
+
+<h3 id="creating-an-import-profile">Creating an import profile</h3>
+
+<p>Once you have installed the package you need to create a new <strong>Advanced Dataflow Profile</strong>, you can find this under <em>System &gt; Import/Export &gt; Dataflow - Advanced Profiles</em>. Create your profile, name it anything you want, we suggest “Xorcode Dataflow Urlrewrite Importer.”</p>
+
+<p>Enter the following <abbr title="eXtended Markup Language">XML</abbr> in the <em>Actions XML</em> field:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;action type="dataflow/convert_adapter_io" method="load"&gt;
+    &lt;var name="type"&gt;file&lt;/var&gt;
+    &lt;var name="path"&gt;var/import&lt;/var&gt;
+    &lt;var name="filename"&gt;&lt;![CDATA[url_rewrites.csv]]&gt;&lt;/var&gt;
+    &lt;var name="format"&gt;&lt;![CDATA[csv]]&gt;&lt;/var&gt;
+&lt;/action&gt;
+&lt;action type="dataflow/convert_parser_csv" method="parse"&gt;
+    &lt;var name="delimiter"&gt;&lt;![CDATA[,]]&gt;&lt;/var&gt;
+    &lt;var name="enclose"&gt;&lt;![CDATA["]]&gt;&lt;/var&gt;
+    &lt;var name="fieldnames"&gt;true&lt;/var&gt;
+    &lt;var name="store"&gt;&lt;![CDATA[default]]&gt;&lt;/var&gt;
+    &lt;var name="options"&gt;&lt;![CDATA[RP]]&gt;&lt;/var&gt;
+    &lt;var name="number_of_records"&gt;50&lt;/var&gt;
+    &lt;var name="decimal_separator"&gt;&lt;![CDATA[.]]&gt;&lt;/var&gt;
+    &lt;var name="adapter"&gt;dataflow/convert_adapter_urlrewrite&lt;/var&gt;
+    &lt;var name="method"&gt;parse&lt;/var&gt;
+&lt;/action&gt;
+</code></pre>
+</div>
+
+<p>You may wish to change the value of <code class="highlighter-rouge">store</code> and <code class="highlighter-rouge">options</code> to something other than the defaults provided. For instance, if your store’s name is <strong>Example</strong>, enter <code class="highlighter-rouge">example</code> in the <abbr title="Character Data">CDATA</abbr> for the <code class="highlighter-rouge">store</code> var.</p>
+
+<p>Upload a file called <code class="highlighter-rouge">url_rewrites.csv</code> to your web server and place it in the <code class="highlighter-rouge">var/import</code> folder of your Magento folder. You may have to create the <code class="highlighter-rouge">var/import</code> folder.</p>
+
+<p>Now you are ready to run the profile. Click the <strong>Run Profile</strong> tab on the Dataflow profile, then click <strong>Run Profile in Popup</strong> and wait for magic.</p>
+
+<p>If you have any suggestions, ideas, or bug reports, please <a href="http://xorcode.net/193vmHs">file issues in our repository</a>.</p>
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

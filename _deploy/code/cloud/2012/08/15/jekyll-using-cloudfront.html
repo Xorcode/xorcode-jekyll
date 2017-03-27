@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Jekyll: Using CloudFront as a CDN</title>
+  <meta name="description" content="We decided to use Amazon CloudFront as a CDN to deliver media assets of our site. This seemed easy enough until we looked into how Jekyll-Bootstrap is writte...">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/code/cloud/2012/08/15/jekyll-using-cloudfront.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Jekyll: Using CloudFront as a CDN</h1>
+    <p class="date post-meta"><time datetime="2012-08-15T00:00:00-04:00" itemprop="datePublished">Aug 15, 2012</time></p>
+    <p>We decided to use <a href="http://xorcode.net/R2fO1q">Amazon CloudFront</a> as a <abbr title="Content Delivery Network">CDN</abbr> to deliver media assets of our site. This seemed easy enough until we looked into how Jekyll-Bootstrap is written. For all intents and purposes, Jekyll-Bootstrap uses safe mode to indicate production. Though that would mean that none of our plugins would be used when deploying.</p>
+
+<!--more-->
+
+<blockquote>
+  <p><img src="/uploads/2012/08/cloudfront.png" class="pull-right" /> Amazon CloudFront is a web service for content delivery. It integrates with other Amazon Web Services to give developers and businesses an easy way to distribute content to end users with low latency, high data transfer speeds, and no commitments.</p>
+</blockquote>
+
+<p>Time to modify jekyll itself.</p>
+
+<p>Open up <strong>jekyll/bin/jekyll</strong> and add this new option:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code>  <span class="n">opts</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s2">"--[no-]production"</span><span class="p">,</span> <span class="s2">"Production mode (default development)"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">production</span><span class="o">|</span>
+    <span class="n">options</span><span class="p">[</span><span class="s1">'production'</span><span class="p">]</span> <span class="o">=</span> <span class="n">production</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/3360764/jekyll.rb.js"> </script>
+
+<p>After modifying this, and feeling a bit bad about it, we went on to change Jekyll-Bootstrap as well.</p>
+
+<p><strong>_includes/JB/setup:</strong></p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/3360764/setup.js"> </script>
+
+<p><strong>_includes/JB/analytics:</strong></p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/3360764/analytics.js"> </script>
+
+<p><strong>_includes/JB/comments:</strong></p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/3360764/comments.js"> </script>
+
+<p><strong>_config.yml:</strong></p>
+
+<p>We changed our configuration to include <code class="highlighter-rouge">UPLOAD_PATH</code>.</p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/3360764/_config.yml.js"> </script>
+
+<p>Finally we added the following task to our <strong>Rakefile:</strong></p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/3360764/Rakefile.js"> </script>
+
+<p>Now we can deploy to our production site and have it use the proper CloudFront URLs.</p>
+
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

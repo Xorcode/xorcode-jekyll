@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Using Backbeam in Titanium™ mobile applications</title>
+  <meta name="description" content="Backbeam provides a full-stack backend platform with API SDKs for Node.js/JavaScript, iOS, Android, and browsers. Titanium™ Studio by Appcelerator® is a mode...">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/code/2013/08/10/using-backbeam-io-in-titanium-studio-mobile-apps.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Using Backbeam in Titanium™ mobile applications</h1>
+    <p class="date post-meta"><time datetime="2013-08-10T19:42:00-04:00" itemprop="datePublished">Aug 10, 2013</time></p>
+    <p><a href="http://bit.ly/1cV0j5N">Backbeam</a> provides a full-stack backend platform with API SDKs for Node.js/JavaScript, iOS, Android, and browsers. <a href="http://bit.ly/1cV0luh">Titanium™ Studio</a> by Appcelerator<sup>®</sup> is a modern IDE for developers to rapidly build, test, package and publish cross platform, native mobile applications. We thought it was about time they met each other.</p>
+
+<!--more-->
+
+<p>In order to get started with Backbeam in Titanium™ you need only include the <a href="http://bit.ly/1cV27eO">Backbeam JavaScript SDK</a> in your project and you are off to the races.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">Ti</span><span class="p">.</span><span class="nx">include</span><span class="p">(</span><span class="s1">'/backbeam/hmac-sha1.js'</span><span class="p">)</span>
+<span class="nx">Ti</span><span class="p">.</span><span class="nx">include</span><span class="p">(</span><span class="s1">'/backbeam/enc-base64.js'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">backbeam</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'/backbeam/backbeam'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Once included, backbeam can be called just as it would be called in a browser or in <a href="http://bit.ly/17fJaim">node.js</a>.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">backbeam</span><span class="p">.</span><span class="nx">configure</span><span class="p">({</span>
+    <span class="na">project</span><span class="p">:</span> <span class="s1">'your-project-name'</span><span class="p">,</span> <span class="c1">// the subdomain of your project</span>
+    <span class="na">shared</span><span class="p">:</span> <span class="s1">'your-shared-key'</span><span class="p">,</span>
+    <span class="na">secret</span><span class="p">:</span> <span class="s1">'your-secret-secret'</span><span class="p">,</span>
+    <span class="na">env</span><span class="p">:</span> <span class="s1">'dev'</span> <span class="c1">// can be 'dev' or 'pro'</span>
+<span class="p">})</span>
+</code></pre>
+</div>
+
+<p>Please see the documentation for respective product for more in-depth information.</p>
+
+<p><a href="http://bit.ly/17fJyxh" class="btn btn-primary">Titanium™ SDK/Studio Documentation</a> <a href="http://bit.ly/1cV27eO" class="btn btn-primary">Backbeam JavaScript SDK</a></p>
+
+<p><small class="muted">Appcelerator<sup>®</sup> is a trademark of Appcelerator, Inc., registered in the U.S and/or other countries and is used under license.</small></p>
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

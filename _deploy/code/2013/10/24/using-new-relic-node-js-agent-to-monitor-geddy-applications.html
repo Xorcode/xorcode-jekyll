@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Using New Relic&#39;s Node.js agent to monitor Geddy applications</title>
+  <meta name="description" content="Having used New Relic for other projects we of course jumped on the chance to get started with New Relic for Node.js when our sales contact reached out to us...">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/code/2013/10/24/using-new-relic-node-js-agent-to-monitor-geddy-applications.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Using New Relic&#39;s Node.js agent to monitor Geddy applications</h1>
+    <p class="date post-meta"><time datetime="2013-10-24T13:54:00-04:00" itemprop="datePublished">Oct 24, 2013</time></p>
+    <p>Having used <a href="http://bit.ly/1pWLIgB">New Relic</a> for other projects we of course jumped on the chance to get started with <a href="http://bit.ly/1fCU83P">New Relic for Node.js</a> when our sales contact reached out to us right after their beta ended. We’ve got several projects using <a href="http://bit.ly/1pWLHcA">Geddy</a>, which is not supported out of the box, so we had to do some customization.</p>
+
+<!-- more -->
+
+<blockquote>
+  <p>Pinpoint and solve your Node.js application performance issues! New Relic is the only tool you’ll need to see everything in your data intensive, real-time, Node.js applications—from application response times to server monitoring.</p>
+</blockquote>
+
+<p>New Relic for Node.js officially launched today, and the <a href="http://bit.ly/1fCU83Q">original press release</a> includes a short tutorial on how to get started, which we will also cover in this article.</p>
+
+<h2 id="create-a-new-geddy-project">Create a new Geddy project</h2>
+
+<p>Create a new Geddy project.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ geddy gen app newrelic-test
+$ cd newrelic-test
+</code></pre>
+</div>
+
+<p>Let’s start with installing the New Relic Node.js agent.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ npm install newrelic --save
+</code></pre>
+</div>
+
+<h2 id="configuring-geddy-and-new-relic">Configuring Geddy and New Relic</h2>
+
+<p>Once you have installed the agent, you need to copy the configuration file into the root of your project.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ cp ./node_modules/newrelic/newrelic.js .
+</code></pre>
+</div>
+
+<p>Open <code class="highlighter-rouge">newrelic.js</code> and change the value for <strong>app_name</strong> to the name of your application. Replace the value of <strong>license_key</strong> with your actual license key which you get from New Relic. We also change <strong>logging.level</strong> from <em>“trace”</em> to <em>“info”</em> to avoid agent log spam.</p>
+
+<p>In order for New Relic to be able to properly report for your application we need to create a startup file since we can’t run this with the <code class="highlighter-rouge">geddy</code> command like we normally do locally.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ npm install geddy --save
+</code></pre>
+</div>
+
+<p>Create a new file in your project root called <code class="highlighter-rouge">app.js</code> and add the following to that file to get New Relic up and running in your Geddy project:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var geddy = require('geddy');
+
+geddy.startCluster({
+  hostname: '0.0.0.0'
+, port: process.env.PORT || '4000'
+, environment: process.env.NODE_ENV || 'development'
+});
+</code></pre>
+</div>
+
+<h2 id="loading-new-relic">Loading New Relic</h2>
+
+<p>Load New Relic in your <code class="highlighter-rouge">config/init.js</code> script.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var cluster = require('cluster');
+
+if (cluster.isWorker &amp;&amp; process.env.NODE_ENV == 'production') {
+  process.env.NEW_RELIC_LOG = 'stdout';
+  geddy.newrelic = require('newrelic');
+}
+</code></pre>
+</div>
+
+<p>We only require the New Relic module if we’re running in production. You can always remove the <code class="highlighter-rouge">if</code> statement around <code class="highlighter-rouge">require('newrelic')</code> if that makes more sense to you. We also prefer that New Relic logs to <code class="highlighter-rouge">stdout</code> instead of to a log file since we host on various different platforms and we might not want files to be created at all.</p>
+
+<h2 id="scaffold-test-endpoint">Scaffold test endpoint</h2>
+
+<p>We need something to report on, so let’s scaffold an endpoint for our application to report on.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ geddy gen scaffold user username:string email:string
+</code></pre>
+</div>
+
+<p>You’ll see output similar to this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[Added] app/models/user.js
+[Added] db/migrations/20131024163436_create_users.js
+[Added] test/models/user.js
+[Added] test/controllers/users.js
+[Added] app/controllers/users.js
+[Added] Resource users route added to config/router.js
+[Added] View templates
+</code></pre>
+</div>
+
+<h2 id="name-requests-properly-in-geddy">Name requests properly in Geddy</h2>
+
+<p>Open up <code class="highlighter-rouge">app/controllers/application.js</code> and change its contents to the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var Application = function () {
+  this.before(function () {
+    geddy.newrelic.setControllerName(this.params.controller, this.params.action);
+  });
+};
+
+exports.Application = Application;
+</code></pre>
+</div>
+
+<p>We are using <code class="highlighter-rouge">newrelic.setControllerName()</code> to name our requests so that they do not all get grouped under <code class="highlighter-rouge">/*</code> or similar in New Relic.</p>
+
+<h2 id="run-your-application">Run your application</h2>
+
+<p>Running our application with Node is simple:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ node app
+</code></pre>
+</div>
+
+<p>Navigate to <a href="http://localhost:4000/">http://localhost:4000/</a> and then <a href="http://localhost:4000/users">http://localhost:4000/users</a> where you can start adding, editing, and removing users to get some sample data in your New Relic account.</p>
+
+<p>Once you start your application you will begin to see data in New Relic within five minutes and your brand new Node.js application will be accessible from your New Relic dashboard.</p>
+
+<h2 id="repository">Repository</h2>
+
+<p>You can take a look at our example repository if you want to make sure you didn’t miss anything.</p>
+
+<p><a href="http://bit.ly/1pWLIgG" class="btn btn-primary"><i class="fa fa-bitbucket"></i> Fork on Bitbucket</a></p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>For more information, please see the <a href="http://geddyjs.org/reference#controllers.params">Geddy documentation</a> on controllers as well as the <a href="https://github.com/newrelic/node-newrelic/#transactions-and-request-naming">New Relic Node.js project</a>.</p>
+
+<h2 id="thank-yous">Thank yous</h2>
+
+<p>Thanks to <a href="https://github.com/ben-ng">Ben Ng</a> for finding the memory leak issue with New Relic and for supplying a fix.</p>
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>

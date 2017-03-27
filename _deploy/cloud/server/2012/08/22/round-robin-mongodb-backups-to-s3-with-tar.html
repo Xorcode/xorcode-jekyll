@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>Round Robin MongoDB backups to S3 with Tar</title>
+  <meta name="description" content="Have you been looking for an easy way to back something up to the cloud with minimum effort? Having explored several options we settled on the most simple so...">
+
+  <script src="https://use.typekit.net/nsl7rga.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="/cloud/server/2012/08/22/round-robin-mongodb-backups-to-s3-with-tar.html">
+  <link rel="alternate" type="application/rss+xml" title="Xorcode" href="/feed.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="/assets/img/logotype-light.png" alt="Xorcode">
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <span class="fa fa-bars fa-2x" aria-hidden="true" title="Skip to main navigation"><span class="sr-only">Skip to main navigation</span></span>
+    </a>
+    <nav role="navigation">
+      <ul id="menu-primary-menu" class="navigation-menu show">
+        <li class="menu-item"><a href="javascript:void(0)">Cloud</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Code</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Design</a></li>
+        <li class="menu-item"><a href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <section class="blog-entry left">
+  <article class="type-page" itemscope itemtype="http://schema.org/BlogPosting">
+    <h1 itemprop="name headline">Round Robin MongoDB backups to S3 with Tar</h1>
+    <p class="date post-meta"><time datetime="2012-08-22T00:00:00-04:00" itemprop="datePublished">Aug 22, 2012</time></p>
+    <p>Have you been looking for an easy way to back something up to the cloud with minimum effort? Having explored several options we settled on the most simple solution available. <a href="http://bit.ly/NlRanp">Tar</a> and <a href="http://amzn.to/Py3yoX">Amazon S3</a>.</p>
+
+<!--more-->
+
+<blockquote>
+  <p><img src="/uploads/2012/08/gnu-head.png" class="pull-right" /> The Tar program provides the ability to create tar archives, as well as various other kinds of manipulation. For example, you can use Tar on previously created archives to extract files, to store additional files, or to update or list files which were already stored. Initially, tar archives were used to store files conveniently on magnetic tape. The name “Tar” comes from this use; it stands for <strong>t</strong>ape <strong>ar</strong>chiver. Despite the utility’s name, Tar can direct its output to available devices, files, or other programs (using pipes), it can even access remote devices or files (as archives).</p>
+</blockquote>
+
+<p><strong>backup.sh</strong></p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/3430452/backup.sh.js"> </script>
+
+<p><strong>tarsplitter.sh</strong></p>
+
+<noscript><pre>404: Not Found
+</pre></noscript>
+<script src="https://gist.github.com/3430452/tarsplitter.sh.js"> </script>
+
+<p>Make sure that <code class="highlighter-rouge">s3cmd</code> or <code class="highlighter-rouge">s3multiput</code> is in your environment path.</p>
+
+<h3 id="running-on-an-aws-instance">Running on an AWS instance</h3>
+
+<p>As long as you are on an AWS instance you have the <code class="highlighter-rouge">s3multiput</code> utility installed and ready to start using these scripts right away. We noticed on our AWS instance that <code class="highlighter-rouge">s3multiput</code> did not work because FileChunkIO was not installed. The S3 command line tools are written in Python, so we installed FileChunkIO with the following command:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo easy_install FileChunkIO
+</code></pre>
+</div>
+
+<h3 id="non-aws-scenarios">Non-AWS scenarios</h3>
+
+<p>If you are not on an AWS instance, you have to install <a href="http://bit.ly/NlRdj7">s3cmd</a>. Unfortunately the S3 tools available in AWS are not yet packaged for Ubuntu, which however has some <a href="http://bit.ly/Py3CVN">native package support</a> for other AWS services.</p>
+
+<h4 id="installing-s3-tools-on-ubuntu">Installing S3 Tools on Ubuntu</h4>
+
+<p>If you happen to have Ubuntu 12.04 LTS you can safely install <code class="highlighter-rouge">s3cmd</code> with <code class="highlighter-rouge">apt-get</code>.</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install s3cmd
+</code></pre>
+</div>
+
+<p>Otherwise we recommend that you install from <a href="http://bit.ly/Pybvdy">source</a>.</p>
+
+<h4 id="installing-s3-tools-on-rpm-based-systems">Installing S3 Tools on RPM-based systems</h4>
+
+<blockquote>
+  <p>Users of Suse (Novell) and RedHat based Linux distributions are encouraged to add our <a href="http://bit.ly/PybvdA">package repository</a> to their package managers. That way you’ll always stay up to date with your s3cmd package.</p>
+</blockquote>
+
+<p>As stated above it is best to add the package repository to stay up to date with the S3 tools.</p>
+
+<h4 id="installing-s3-tools-from-source">Installing S3 Tools from source</h4>
+
+<p>Check out the source of S3 tools:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone git://github.com/s3tools/s3cmd.git
+<span class="gp">$ </span><span class="nb">cd </span>s3cmd
+<span class="gp">$ </span>sudo python setup.py install
+</code></pre>
+</div>
+
+<p>The above requires that you have the Python distutils module. On a Debian system (such as Ubuntu):</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install python-setuptools
+</code></pre>
+</div>
+
+<h4 id="configure-s3cmd">Configure s3cmd</h4>
+
+<p>You have to run <code class="highlighter-rouge">s3cmd --configure</code> in order to make <code class="highlighter-rouge">s3cmd</code> work. This will take you through a set of guided prompts setting up your access key and secret key as well as encryption.</p>
+
+
+    
+    
+      
+    
+  </article>
+</section>
+
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-logo">
+    <img src="/assets/img/logo-mark-light.png " alt="Xorcode">
+  </div>
+  <div class="footer-links">
+    <ul>
+      <li><h3>Content</h3></li>
+      <li><a href="javascript:void(0)">Cloud</a></li>
+      <li><a href="javascript:void(0)">Code</a></li>
+      <li><a href="javascript:void(0)">Design</a></li>
+      <li><a href="javascript:void(0)">Contact</a></li>
+    </ul>
+    <ul>
+      <li><h3>Follow Us</h3></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-twitter fa-inverse"></i> Twitter</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-github fa-inverse"></i> Github</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-bitbucket fa-inverse"></i> Bitbucket</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-facebook fa-inverse"></i> Facebook</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-linkedin fa-inverse"></i> LinkedIn</a></li>
+      <li><a href="javascript:void(0)"><i class="fa fa-google-plus fa-inverse"></i> Google+</a></li>
+    </ul>
+    <ul>
+      <li><h3>Legal</h3></li>
+      <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+      <li><a href="javascript:void(0)">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <p>Copyright © 2003–2017 Xorcode, all rights reserved. Content available under the <span class="fa fa-creative-commons"></span> <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0</a> license.</p>
+</footer>
+
+
+    <script src="/assets/js/functions.js"></script>
+  </body>
+
+</html>
