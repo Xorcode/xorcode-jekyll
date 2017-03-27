@@ -49,3 +49,5 @@ exclude:
   - Gemfile.lock
   - config.ru
   - vendor
+  - Rakefile
+  - CNAME
