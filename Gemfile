@@ -2,7 +2,7 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "bundler"
-gem "jekyll", "3.4.2"
+gem "jekyll", "3.4.3"
 gem "rack-jekyll"
 gem "kramdown", "~> 1.13.2"
 gem "pygments.rb", "~> 0.3.7"
@@ -19,3 +19,8 @@ group :jekyll_plugins do
   gem "jekyll-bitly", "~> 1.0.0"
   gem "jekyll-seo-tag", "~> 2.1.0"
 end
+
+require 'json'
+require 'open-uri'
+versions = JSON.parse(open('https://pages.github.com/versions.json').read)
+gem 'github-pages', versions['github-pages']
