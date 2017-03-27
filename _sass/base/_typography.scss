@@ -21,6 +21,13 @@ p {
   margin: 0 0 $small-spacing;
 }
 
+code,
+kbd,
+pre,
+samp {
+  font-family: $font-stack-mono;
+}
+
 a {
   color: $action-color;
   text-decoration: none;

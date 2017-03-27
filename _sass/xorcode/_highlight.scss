@@ -5,8 +5,20 @@ pre.highlight {
 }
 
 .highlight {
+  margin-bottom: $small-spacing * 2;
+
+  figcaption {
+    font-size: 90%;
+    font-family: $font-stack-mono;
+    background: $syntax-caption-bg;
+    padding: $small-spacing ($small-spacing * 2);
+  }
+
   pre {
+    font-size: 90%;
     background: $syntax-bg;
+    padding: $small-spacing ($small-spacing * 2);
+    margin: 0;
   }
 
   .hll {
