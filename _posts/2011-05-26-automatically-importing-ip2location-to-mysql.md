@@ -4,8 +4,8 @@ status: publish
 published: true
 title: Automatically importing IP2Location to MySQL
 date: 2011-05-26 15:23:06.000000000 -04:00
-categories: [Code]
-tags: [web,php]
+categories: Code
+tags: web php
 ---
 
 Have you ever found that you need to know where in the world a user happens to browse from? We did, and we tried several API services that proved to be unreliable and also created overhead when an API call was placed for each visitor of the site.

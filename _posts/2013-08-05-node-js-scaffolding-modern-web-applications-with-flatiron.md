@@ -3,8 +3,8 @@ layout: post
 title: "Node.js: Scaffolding Modern Web Applications with Flatiron"
 date: 2013-08-05 23:04
 comments: true
-categories: [Code]
-tags: [node.js,flatiron,union,resourceful,restful,plates]
+categories: Code
+tags: node.js flatiron union resourceful restful plates
 description: After having used Express, Jade, Stylus, and Mongoose for quite some time we decided to try something new. Enter Flatiron, Union, Director, Plates, and Resourceful.
 ---
 After having used [Express]({{ 'http://expressjs.com/' | bitly }}), [Jade]({{ 'http://jade-lang.com/' | bitly }}), [Stylus]({{ 'http://learnboost.github.io/stylus/' | bitly }}), and [Mongoose]({{ 'http://mongoosejs.com/' | bitly }}) for quite some time we decided to try something new. Enter [Flatiron]({{ 'http://flatironjs.org/' | bitly }}), [Union]({{ 'http://flatironjs.org/#middleware' | bitly }}), [Director]({{ 'http://flatironjs.org/#routing' | bitly }}), [Plates]({{ 'http://flatironjs.org/#templating' | bitly }}), and [Resourceful]({{ 'http://flatironjs.org/#data' | bitly }}).

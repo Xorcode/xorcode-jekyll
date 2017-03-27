@@ -3,8 +3,8 @@ layout: post
 title: "Magento: Generic URL Rewrite Importer"
 date: 2013-09-15 12:26
 comments: true
-categories: [Code]
-tags: [magento,wordpress,woocommerce,extensions]
+categories: Code
+tags: magento wordpress woocommerce extensions
 ---
 Ever needed to import a large set of generic URL rewrites into Magento? The Generic URL Rewrite Importer for Magento helps you do just that!
 <!--more-->

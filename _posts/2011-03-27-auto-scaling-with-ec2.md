@@ -4,8 +4,8 @@ status: publish
 published: true
 title: Auto-Scaling with EC2
 date: 2011-03-27 13:45:04.000000000 -04:00
-categories: [Cloud]
-tags: [ec2,amazon]
+categories: Cloud
+tags: ec2 amazon
 alias: [/guides/auto-scaling-with-ec2]
 ---
 

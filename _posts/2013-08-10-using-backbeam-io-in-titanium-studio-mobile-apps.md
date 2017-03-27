@@ -3,8 +3,8 @@ layout: post
 title: "Using Backbeam in Titanium™ mobile applications"
 date: 2013-08-10 19:42
 comments: true
-categories: [Code]
-tags: [titanium,backbeam,javascript,api,android,ios,web]
+categories: Code
+tags: titanium backbeam javascript api android ios web
 description: Connecting Titanium™ mobile apps to Backbeam lets you develop hyper-connected applications.
 decor_image: /uploads/2013/08/titanium-backbeam-feature.png
 ---

@@ -2,8 +2,8 @@
 layout: post
 title: "Migrating Your WordPress Site to Jekyll Bootstrap"
 comments: true
-categories: [Code]
-tags: [jekyll,jekyll-bootstrap,wordpress,ruby]
+categories: Code
+tags: jekyll jekyll-bootstrap wordpress ruby
 ---
 
 We are always looking for ways to improve performance. As an exercise we tried to find the easiest, fastest, blog publishing tool out there. The engine behind [GitHub Pages](http://xorcode.net/Pb1LG2) caught our eye. Enter [Jekyll](http://xorcode.net/Pb1SBF). Then enter [Jekyll-Bootstrap](http://xorcode.net/SjE0JM).
@@ -88,4 +88,3 @@ Take a look at what we have done with Jekyll and Jekyll-Bootstrap:
 ### In conclusion
 
 So far we love Jekyll and Jekyll-Bootstrap! We also got to learn Ruby in the process.
-

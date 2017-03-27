@@ -4,8 +4,8 @@ status: publish
 published: true
 title: Creating your first Zend Framework site with Elastic Beanstalk
 date: 2012-03-22 19:22:04.000000000 -04:00
-categories: [Cloud,Code]
-tags: [amazon,php,aws,elastic beanstalk]
+categories: Cloud Code
+tags: amazon php aws elastic-beanstalk
 ---
 
 Trying out the new feature of AWS Elastic Beanstalk we created and deployed a Zend Framework PHP project to Elastic Beanstalk in less than five minutes using git.

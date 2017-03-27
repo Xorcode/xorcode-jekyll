@@ -3,8 +3,8 @@ layout: post
 title: "Round Robin MongoDB backups to S3 with Tar"
 description: ""
 comments: true
-categories: [Cloud,Server]
-tags: [tar,mongodb,amazon,s3]
+categories: Cloud Server
+tags: tar mongodb amazon s3
 description: Have you been looking for an easy way to back something up to the cloud with minimum effort? Having explored several options we settled on the most simple solution available. Tar and Amazon S3.
 ---
 
@@ -71,4 +71,3 @@ $ sudo apt-get install python-setuptools
 #### Configure s3cmd
 
 You have to run `s3cmd --configure` in order to make `s3cmd` work. This will take you through a set of guided prompts setting up your access key and secret key as well as encryption.
-

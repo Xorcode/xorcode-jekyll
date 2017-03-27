@@ -5,8 +5,8 @@ layout: post
 title: "Foodles Kickstarter Launched"
 date: 2014-11-15 11:10
 comments: true
-categories: [Code]
-tags: [kickstarter,food,cookbook]
+categories: Code
+tags: kickstarter food cookbook
 ---
 New Kickstarter launched! Foodl.es keeps all your favorite family recipes at your fingertips, no matter where your family meal traditions take you.
 
@@ -24,4 +24,3 @@ Help us spread the word and by backing the [Foodles](http://kck.st/1veSwLo) proj
 
 <a class="btn btn-success" href="http://kck.st/1veSwLo"><i class="fa fa-heart"></i> Kickstarter</a>
 <a class="btn btn-primary" href="http://foodl.es/"><i class="fa fa-bullhorn"></i> Foodles Landing page</a>
-

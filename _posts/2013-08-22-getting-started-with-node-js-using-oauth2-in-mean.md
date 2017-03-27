@@ -3,8 +3,8 @@ layout: post
 title: "Getting Started with Node.js #2: Using OAuth2 in MEAN applications"
 date: 2013-08-22 10:48
 comments: true
-categories: [Code]
-tags: [mean,node.js,oauth,express,passport.js,tutorial,series]
+categories: Code
+tags: mean node.js oauth express passport.js tutorial series
 series: Getting Started with Node.js
 series_description: An introduction to MongoDB, Express, Angular, and Node.js describing how to use the MEAN stack to quickly set up fully functional web applications with Node.js. The series assume you have some programming experience.
 ---

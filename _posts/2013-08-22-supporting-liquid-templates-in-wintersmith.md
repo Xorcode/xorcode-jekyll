@@ -3,8 +3,8 @@ layout: post
 title: "Supporting Liquid Templates in Wintersmith"
 date: 2013-08-22 08:55
 comments: true
-categories: [Code]
-tags: [wintersmith,node.js,liquid]
+categories: Code
+tags: wintersmith node.js liquid
 ---
 We've gotten used to [Liquid](https://github.com/Shopify/liquid/) from using [Jekyll](http://xorcode.net/13Tvyaq) and [Octopress](http://xorcode.net/13TvzLx). When we took [Wintersmith](http://xorcode.net/13TvDuX) for a spin we sort of missed Liquid. So we created a template plugin for Liquid that uses the [liquid-node](http://xorcode.net/13TtSOc) module to render Liquid templates.
 

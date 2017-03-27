@@ -4,8 +4,8 @@ status: publish
 published: true
 title: Setting up Zend Framework — Part 1
 date: 2011-03-31 20:35:22.000000000 -04:00
-categories: [Code]
-tags: [web,zend,php]
+categories: Code
+tags: web zend php
 alias: [/guides/setting-up-zend-framework-part-1]
 ---
 

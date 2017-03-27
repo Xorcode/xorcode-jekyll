@@ -3,8 +3,8 @@ layout: post
 title: "Help us Reset The Net on June 5"
 date: 2014-04-19 11:38
 comments: true
-categories: [Cloud, Server]
-tags: [security,causes,server,privacy]
+categories: Cloud Server
+tags: security causes server privacy
 ---
 We can't stop targeted hacking, but we *can* stop mass surveillance, by building proven security into the everyday Internet. Join us and others for [#ResetTheNet](https://www.resetthenet.org/) on June 5th where we promote free, open source tools for end-to-end encryption.
 

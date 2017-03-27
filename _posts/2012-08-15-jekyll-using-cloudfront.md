@@ -3,8 +3,8 @@ layout: post
 title: "Jekyll: Using CloudFront as a CDN"
 description: "Using CloudFront in Jekyll-Bootstrap"
 comments: true
-categories: [Code,Cloud]
-tags: [jekyll,amazon,cloudfront,ruby,jekyll-bootstrap]
+categories: Code Cloud
+tags: jekyll amazon cloudfront ruby jekyll-bootstrap
 description: Deploying style, script, and media assets to a CDN with Jekyll.
 ---
 
@@ -51,4 +51,3 @@ Finally we added the following task to our **Rakefile:**
 {% gist 3360764/Rakefile %}
 
 Now we can deploy to our production site and have it use the proper CloudFront URLs.
-

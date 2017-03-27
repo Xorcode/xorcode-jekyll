@@ -2,8 +2,8 @@
 layout: post
 title: "Jekyll: Creating Your First Liquid Plugin"
 comments: true
-categories: [Code]
-tags: [jekyll,jekyll-bootstrap,ruby,qr]
+categories: Code
+tags: jekyll jekyll-bootstrap ruby qr
 description: Guide to creating your first Liquid plugin for use with Jekyll.
 ---
 

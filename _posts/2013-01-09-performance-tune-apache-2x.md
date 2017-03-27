@@ -3,8 +3,8 @@ layout: post
 title: "Web Servers in AWS: Performance Tune Apache 2.x"
 description: "Performance Tune Apache 2.x"
 comments: true
-categories: [Cloud,Server]
-tags: [aws,amazon,apache,performance]
+categories: Cloud Server
+tags: aws amazon apache performance
 description: Help determine your Apache ServerLimit and MaxClients for your specific AWS EC2 server configuration to ensure that your instance runs smoothly.
 ---
 

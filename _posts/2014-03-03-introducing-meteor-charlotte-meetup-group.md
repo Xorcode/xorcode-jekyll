@@ -3,8 +3,8 @@ layout: post
 title: "Introducing the Meteor Charlotte meetup group"
 date: 2014-03-03 16:36
 comments: true
-categories: [Code]
-tags: [meteor,charlotte,meetup]
+categories: Code
+tags: meteor charlotte meetup
 ---
 Earlier this year we at Xorcode started a [meetup group]({{ 'http://www.meetup.com/Meteor-Charlotte' | bitly }}) for people interested in Meteor in Charlotte, NC. We had a pretty decent turnout the first meeting, with thirteen Meteorites in attendance. We've got several more meetings planned along with a hackathon.
 

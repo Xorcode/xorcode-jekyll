@@ -3,8 +3,8 @@ layout: post
 title: "AWS PaaS: Running Node.js with Dokku on an Ubuntu instance"
 date: 2013-07-28 11:48
 comments: true
-categories: [Cloud,Server]
-tags: [node.js,dokku,docker,ubuntu,paas]
+categories: Cloud Server
+tags: node.js dokku docker ubuntu paas
 description: After having tried several fully featured PaaS stacks such as Nodejitsu, Heroku, and OpenShift we decided to roll our own simple PaaS stack with Dokku and AWS.
 ---
 After having tried several fully featured <abbr title="Platform As A Service">PaaS</abbr> stacks such as [Nodejitsu]({{ 'https://www.nodejitsu.com/' | bitly }}), [Heroku]({{ 'https://www.heroku.com/' | bitly }}), and [OpenShift]({{ 'https://www.openshift.com/' | bitly }}) we decided to roll our own simple PaaS stack with [Dokku]({{ 'https://github.com/progrium/dokku' | bitly }}) and [AWS]({{ 'http://aws.amazon.com/' | bitly }}).

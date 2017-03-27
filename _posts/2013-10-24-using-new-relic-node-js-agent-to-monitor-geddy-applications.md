@@ -3,8 +3,8 @@ layout: post
 title: "Using New Relic's Node.js agent to monitor Geddy applications"
 date: 2013-10-24 13:54
 comments: true
-categories: [Code]
-tags: [node.js,geddy,new relic]
+categories: Code
+tags: node.js geddy new-relic
 ---
 Having used [New Relic]({{ 'http://newrelic.com/' | bitly }}) for other projects we of course jumped on the chance to get started with [New Relic for Node.js]({{ 'http://newrelic.com/nodejs' | bitly }}) when our sales contact reached out to us right after their beta ended. We've got several projects using [Geddy]({{ 'http://geddyjs.org/' | bitly }}), which is not supported out of the box, so we had to do some customization.
 

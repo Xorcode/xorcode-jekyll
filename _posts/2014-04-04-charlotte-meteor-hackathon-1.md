@@ -3,8 +3,8 @@ layout: post
 title: "Charlotte Meteor Hackathon #1"
 date: 2014-04-04 01:08
 comments: true
-categories: [Code,Cloud]
-tags: [meteor,charlotte,hackathon,meetup]
+categories: Code Cloud
+tags: meteor charlotte hackathon meetup
 ---
 We will be hacking on an app or service that provides value to Charlotte and the local communities here as a project where we can get to know Meteor in depth from idea to deployment and production environment configuration.
 

@@ -3,8 +3,8 @@ layout: post
 title: "Getting Started with Node.js #1: Using the MEAN Stack"
 date: 2013-08-15 13:05
 comments: true
-categories: [Code]
-tags: [mean,node.js,mongodb,express,angular,tutorial,series]
+categories: Code
+tags: mean node.js mongodb express angular tutorial series
 series: Getting Started with Node.js
 series_description: An introduction to MongoDB, Express, Angular, and Node.js describing how to use the MEAN stack to quickly set up fully functional web applications with Node.js. The series assume you have some programming experience.
 ---

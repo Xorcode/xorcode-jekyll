@@ -5,8 +5,8 @@ published: true
 title: Using Solarized colors with vim, Eclipse, and Ubuntu
 date: 2011-04-11 16:59:17.000000000 -04:00
 comments: true
-categories: [Code]
-tags: [eclipse,ubuntu]
+categories: Code
+tags: eclipse ubuntu
 alias: [/guides/solarized-vim-eclipse-ubuntu]
 ---
 
