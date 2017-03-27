@@ -38,11 +38,14 @@ kramdown:
 gems:
   - bourbon
   - neat
+  - jekyll-admin
+  - jekyll-bitly
   - jekyll-feed
   - jekyll-gist
   - jekyll-highlight
-  - jekyll-series
   - jekyll-seo-tag
+  - jekyll-series
+  - jekyll-sitemap
 exclude:
   - Procfile
   - Gemfile
