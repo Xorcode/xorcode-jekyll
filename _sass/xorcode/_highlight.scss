@@ -4,7 +4,11 @@ pre.highlight {
   color: $mono-1;
 }
 
-.highlight {
+code.highlighter-rouge {
+  font-size: 90%;
+}
+
+figure.highlight, div.highlighter-rouge {
   margin-bottom: $small-spacing * 2;
 
   figcaption {
@@ -19,6 +23,7 @@ pre.highlight {
     background: $syntax-bg;
     padding: $small-spacing ($small-spacing * 2);
     margin: 0;
+    overflow-y: auto;
   }
 
   .hll {

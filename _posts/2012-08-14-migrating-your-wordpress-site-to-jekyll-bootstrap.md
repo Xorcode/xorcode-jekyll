@@ -10,7 +10,7 @@ We are always looking for ways to improve performance. As an exercise we tried t
 
 <!--more-->
 
-> <img src="/uploads/2012/08/jekyll-150x150.jpg" class="pull-right"> Jekyll is a simple, blog aware, static site generator. It takes a template directory (representing the raw form of a website), runs it through Textile or Markdown and Liquid converters, and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.
+> <img src="{{ '/assets/uploads/2012/08/jekyll-150x150.jpg' | relative_url }}" class="pull-right"> Jekyll is a simple, blog aware, static site generator. It takes a template directory (representing the raw form of a website), runs it through Textile or Markdown and Liquid converters, and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.
 
 Our previous choice of CMS happened to be WordPress simply because we design and maintain several WordPress installations for our clients. How does one migrate from WordPress to Jekyll?
 
@@ -47,7 +47,7 @@ As you may have noticed, we specified a host and also turned off importing comme
 
 Since we intend to use Jekyll-Bootstrap we also made a slight change to the `wordpress.rb` migrator.
 
-<a class="btn btn-primary" href="http://xorcode.net/SjIFeO"><i class="fa fa-bookmark"></i> Look at our wordpress.rb</a>
+<a class="button" href="http://xorcode.net/SjIFeO"><i class="fa fa-bookmark"></i> Look at our wordpress.rb</a>
 
 ### Picking a parser
 
@@ -71,11 +71,11 @@ $ sudo gem install rdiscount
 
 This also means that you will have to modify your `_config.yml` file accordingly:
 
-```yaml
+{% highlight yaml filename="_config.yml" %}
 markdown: rdiscount
 rdiscount:
   extensions: []
-```
+{% endhighlight %}
 
 ### Customizing Jekyll-Bootstrap
 
@@ -83,7 +83,7 @@ Once you have the site up and running you can start customizing the templates an
 
 Take a look at what we have done with Jekyll and Jekyll-Bootstrap:
 
-<a class="btn btn-primary" href="http://xorcode.net/NjG0AV"><i class="fa fa-github"></i> Jekyll-Bootstrap theme</a>
+<a class="button" href="http://xorcode.net/NjG0AV"><i class="fa fa-github"></i> Jekyll-Bootstrap theme</a>
 
 ### In conclusion
 

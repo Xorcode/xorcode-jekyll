@@ -14,4 +14,4 @@ So far we're 28 Meteorites and growing. We've got a Hackathon planned for <a hre
 
 Do you have ideas for the next, cool local application that can help the people of Charlotte in their daily lives? If so, join our Hackathon and help us figure out what to build!
 
-<a href="{{ 'http://www.meetup.com/Meteor-Charlotte/join/?rg=joinus2' | bitly }}" class="btn btn-primary"><i class="fa fa-users"></i> Join Charlotte Meteor</a>
+<a href="{{ 'http://www.meetup.com/Meteor-Charlotte/join/?rg=joinus2' | bitly }}" class="button"><i class="fa fa-users"></i> Join Charlotte Meteor</a>

@@ -18,4 +18,4 @@ Scott Deeter has volunteered to lead this hackathon. He has a bit of work done o
 
 We are looking forward to joining with others to learn more about Meteor and its awesome features.
 
-<a href="{{ 'http://www.meetup.com/Meteor-Charlotte/events/169605722/' | bitly }}" class="btn btn-primary">Join Us</a>
+<a href="{{ 'http://www.meetup.com/Meteor-Charlotte/events/169605722/' | bitly }}" class="button">Join Us</a>

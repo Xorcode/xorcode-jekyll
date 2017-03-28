@@ -17,6 +17,10 @@ layout: default
         </p>
       {% endunless %}
     {% endunless %}
+    <ul class="pager" style="padding-bottom:20px;">
+      {% if page.previous.url %}<li class="previous"><a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}" class="button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous article</a></li>{% endif %}
+      {% if page.next.url %}<li class="next"><a href="{{page.next.url}}" title="Next Post: {{page.next.title}}" class="button">Next article <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>{% endif %}
+    </ul>
     {% if site.disqus.shortname %}
       {% include disqus-comments.html %}
     {% endif %}

@@ -12,7 +12,7 @@ Have you been looking for an easy way to back something up to the cloud with min
 
 <!--more-->
 
-> <img src="/uploads/2012/08/gnu-head.png" class="pull-right"> The Tar program provides the ability to create tar archives, as well as various other kinds of manipulation. For example, you can use Tar on previously created archives to extract files, to store additional files, or to update or list files which were already stored. Initially, tar archives were used to store files conveniently on magnetic tape. The name "Tar" comes from this use; it stands for **t**ape **ar**chiver. Despite the utility's name, Tar can direct its output to available devices, files, or other programs (using pipes), it can even access remote devices or files (as archives).
+> <img src="{{ '/assets/uploads/2012/08/gnu-head.png' | relative_url }}" class="pull-right"> The Tar program provides the ability to create tar archives, as well as various other kinds of manipulation. For example, you can use Tar on previously created archives to extract files, to store additional files, or to update or list files which were already stored. Initially, tar archives were used to store files conveniently on magnetic tape. The name "Tar" comes from this use; it stands for **t**ape **ar**chiver. Despite the utility's name, Tar can direct its output to available devices, files, or other programs (using pipes), it can even access remote devices or files (as archives).
 
 **backup.sh**
 

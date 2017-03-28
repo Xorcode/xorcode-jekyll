@@ -13,7 +13,8 @@ Set up a scalable server farm in less than 10 minutes with Amazon Elastic Comput
 
 <!--more-->
 
-> <img class="pull-right" src="/uploads/2011/03/aws_logo.png">Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers.</blockquote>
+> <img class="pull-right" src="{{ '/assets/uploads/2011/03/aws_logo.png' | relative_url }}">Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers.
+
 If you have used EC2 at all you must have wondered how you can automate the creation of instances in your load balancer. So did we. After much searching and various testing back and forth we came up with the following solution.
 
 ## Dependencies
@@ -32,27 +33,29 @@ To make these exercises easier for you to read we have selected Ubuntu as our op
 
 The EC2 command line tools are available through the Ubuntu Multiverse repository which you can activate through your package manager. Once you have done this, run the following command to install the tools:
 
-```sh
+```shell
 $ sudo apt-get install ec2-api-tools
 ```
 
 Once you have installed the tools you need to download your key pair from Amazon so that you can access the API via the tools. In order to do this you need to access them through your [AWS Account](http://aws.amazon.com/account/). Once there, click the "[Security Credentials](https://aws-portal.amazon.com/gp/aws/developer/account/index.html?ie=UTF8&amp;action=access-key)" link, here you need to create an X.509 Certificate for use with the EC2 Tools.
 
-![X.509 Certificates - Create Certificate](/uploads/2011/03/createcert.png)
+![X.509 Certificates - Create Certificate]('/assets/uploads/2011/03/createcert.png' | relative_url)
 
 Download both the Private Key File and the X.509 Certificate by using the two buttons.
 
-![Download X.509 Certificate](/uploads/2011/03/x.509cert.png)
+![Download X.509 Certificate]('/assets/uploads/2011/03/x.509cert.png' | relative_url)
 
 Store your private key file somewhere safe. Like the text above states, if you lose it, there is no way to recover and you will have to create a new certificate. This is especially important with your SSH key used with your instances since you will lose SSH access if you lose your private key part.
 
 Once you have both certificate parts, create the following directory:
-```sh
+
+```shell
 EC2
 ```
+
 In this directory create sub directories for `CloudWatch` and `AutoScaling`. Extract the respective tools into these directories and create the following files:
 
-```sh exports.sh
+{% highlight shell filename="exports.sh" %}
 #!/bin/sh
 export EC2_PRIVATE_KEY=`pwd`/pk-XXXXXXXXXXXXXXXXXXXXXXXX.pem
 export EC2_CERT=`pwd`/cert-XXXXXXXXXXXXXXXXXXXXXXXX.pem
@@ -61,9 +64,9 @@ export AWS_AUTO_SCALING_HOME=`pwd`/AutoScaling
 export AWS_CLOUDWATCH_HOME=`pwd`/CloudWatch
 export JAVA_HOME=/usr
 export PATH=$PATH:$AWS_ELB_HOME/bin:$AWS_AUTO_SCALING_HOME/bin:$AWS_CLOUDWATCH_HOME/bin
-```
+{% endhighlight %}
 
-```sh setup.sh
+{% highlight shell filename="setup.sh" %}
 #!/bin/sh
 EC2_ROOT=`dirname $0`
 . $EC2_ROOT/exports.sh
@@ -74,13 +77,13 @@ chmod -x $EC2_ROOT/ELB/bin/*.cmd
 chmod +x $EC2_ROOT/CloudWatch/bin/*
 chmod -x $EC2_ROOT/CloudWatch/bin/*.cmd
 chmod +x $EC2_ROOT/*.sh
-```
+{% endhighlight %}
 
 We are simply being lazy above and making sure that all executable files are executable and that the `*.cmd` files are not.
 
 Now we can create the actual script that sets up our auto-scaling load balancer!
 
-```sh setup-autoscaling.sh
+{% highlight shell filename="setup-autoscaling.sh" %}
 #!/bin/sh
 
 . ./exports.sh
@@ -129,6 +132,6 @@ mon-put-metric-alarm MyLowCPUAlarm1 --comparison-operator LessThanThreshold
     --period 600 --statistic Average --threshold 10
     --alarm-actions $SCALE_DOWN_POLICY
     --dimensions "AutoScalingGroupName=$SG_NAME"
-```
+{% endhighlight %}
 
 With the above script you will have a load balancer set up to scale between 2 and 6 instances. Feel free to tweak the values here to ensure that it works best for you.

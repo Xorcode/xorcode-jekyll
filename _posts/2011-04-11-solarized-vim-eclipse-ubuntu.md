@@ -14,13 +14,13 @@ We discovered [Solarized](http://xorcode.net/ejFgVg) by Ethan Schoonover and ins
 
 <!--more-->
 
-> <img src="/uploads/2011/04/solarized-yinyang-150x150.png" class="pull-right"> Solarized is a sixteen color palette (eight monotones, eight accent colors) designed for use with terminal and gui applications. It has several [unique properties](http://xorcode.net/fK0voM). Ethan Schoonover designed this colorscheme with both precise [CIELAB](http://xorcode.net/ezzkDl) lightness relationships and a refined set of hues based on fixed color wheel relationships.
+> <img src="{{ '/assets/uploads/2011/04/solarized-yinyang-150x150.png' | relative_url }}" class="pull-right"> Solarized is a sixteen color palette (eight monotones, eight accent colors) designed for use with terminal and gui applications. It has several [unique properties](http://xorcode.net/fK0voM). Ethan Schoonover designed this colorscheme with both precise [CIELAB](http://xorcode.net/ezzkDl) lightness relationships and a refined set of hues based on fixed color wheel relationships.
 
 [Solarized](http://xorcode.net/ejFgVg) comes with color profiles for Mac OS X, Vim, Mutt, as well as with color palettes for Adobe Photoshop, Apple Color Picker, and GIMP.
 
-<a class="btn btn-primary" href="http://ethanschoonover.com/solarized/files/solarized.zip"><i class="fa fa-download"></i> Download Solarized</a>
+<a class="button" href="http://ethanschoonover.com/solarized/files/solarized.zip"><i class="fa fa-download"></i> Download Solarized</a>
 
-![Solarized Explained](/uploads/2011/04/solarized-vim.png)
+![Solarized Explained]('/assets/uploads/2011/04/solarized-vim.png' | relative_url)
 
 > Solarized works as a sixteen color palette for compatibility with common terminal based applications / emulators. In addition, it has been carefull designed to scale down to a variety of five color palettes (four base monotones plus one accent color) for use in design work such as web design. In every case it retains a strong personality but doesn’t overwhelm.
 
@@ -54,7 +54,7 @@ $ vim ~/.vimrc
 
 Add the following to the top of the file:
 
-```vim
+{% highlight vim filename="~/.vimrc" %}
 syntax enable
 if has('gui_running')
     set background=light
@@ -64,19 +64,19 @@ endif
 set t_Co=16
 let g:solarized_termcolors=16
 colorscheme solarized
-```
+{% endhighlight %}
 
 ## Eclipse
 
 Eclipse requires you to download the Eclipse Color Theme plug-in before you can use the Solarized theme.
 
-<a class="btn btn-primary" href="http://xorcode.net/dSgWwf"><i class="fa fa-download"></i> Download Eclipse Color Theme</a>
+<a class="button" href="http://xorcode.net/dSgWwf"><i class="fa fa-download"></i> Download Eclipse Color Theme</a>
 
 Once you have downloaded and installed the Eclipse plug-in you can download the Solarized Dark and Solarized Light themes.
 
-<a class="btn btn-primary" href="http://xorcode.net/h0Op38"><i class="fa fa-download"></i> Solarized Dark Theme</a>
+<a class="button" href="http://xorcode.net/h0Op38"><i class="fa fa-download"></i> Solarized Dark Theme</a>
 
-<a class="btn btn-primary" href="http://xorcode.net/fL6Jps"><i class="fa fa-download"></i> Solarized Light Theme</a>
+<a class="button" href="http://xorcode.net/fL6Jps"><i class="fa fa-download"></i> Solarized Light Theme</a>
 
 Several other syntax highlighters and adaptations of Ethan's Solarized exist, if you cannot find a scheme for your tool of choice, make your own and let Ethan know what you have contributed!
 

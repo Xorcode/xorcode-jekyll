@@ -23,7 +23,7 @@ Manually entering 20,000+ URL rewrites didn't sound like fun, so we looked at ot
 
 Install the extension in your Magento site by logging into your admin panel and going to *Magento Connect Manager*, which is under the *System* menu. Once there, use the **Direct package file upload** option and upload the package file supplied with this article.
 
-<a href="http://xorcode.net/1bwM9dc" class="btn btn-primary"><i class="fa fa-download"></i> Download URL Rewrite Importer</a>
+<a href="http://xorcode.net/1bwM9dc" class="button"><i class="fa fa-download"></i> Download URL Rewrite Importer</a>
 
 ### Creating an import profile
 
@@ -31,7 +31,7 @@ Once you have installed the package you need to create a new **Advanced Dataflow
 
 Enter the following <abbr title="eXtended Markup Language">XML</abbr> in the *Actions XML* field:
 
-```
+```xml
 <action type="dataflow/convert_adapter_io" method="load">
     <var name="type">file</var>
     <var name="path">var/import</var>

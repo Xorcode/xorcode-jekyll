@@ -12,7 +12,7 @@ Have you ever found that you need to know where in the world a user happens to b
 
 <!--more-->
 
-> <img src="/uploads/2011/05/globe-150x150.png" class="pull-right"> [IP2Location](http://xorcode.net/jdBHWg) is a geo IP solution to help you to identify visitor's geographical location, such as country, region, city, latitude, longitude, ZIP code, time zone, connection speed, ISP and domain name, IDD country code, area code, weather station code and name, and mobile carrier information using a proprietary IP address lookup database and technology without invading the Internet user's privacy.
+> <img src="{{ '/assets/uploads/2011/05/globe-150x150.png' | relative_url }}" class="pull-right"> [IP2Location](http://xorcode.net/jdBHWg) is a geo IP solution to help you to identify visitor's geographical location, such as country, region, city, latitude, longitude, ZIP code, time zone, connection speed, ISP and domain name, IDD country code, area code, weather station code and name, and mobile carrier information using a proprietary IP address lookup database and technology without invading the Internet user's privacy.
 
 ## Requirements
 
@@ -25,9 +25,7 @@ The following simple script utilizes straight MySQL calls instead of using any k
 
 We will download the free version of the [IP database](http://xorcode.net/lAyPsB), which requires that you have [set up an API key](http://xorcode.net/jfZKkW) by registering.
 
-**import.php**
-
-```php
+{% highlight php filename="import.php" %}
 <?php
 define('TEMP_DIR', sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'ipinfodb');
 define('API_KEY', 'INSERT_YOUR_API_KEY_HERE');
@@ -112,12 +110,12 @@ if (($handle = fopen(DATABASE_FILE, 'r')) !== false) {
 	die('Could not open database file: ' . DATABASE_FILE);
 }
 ?>
-```
+{% endhighlight %}
 
 The above script gives you a database table that you can query like this:
 
-```php
+{% highlight php filename="query.php" %}
 <?php
 $sql = sprintf('SELECT * FROM ipinfodb WHERE ip_start <= %d ORDER BY ip_start DESC LIMIT 1', ip2long($_SERVER['REMOTE_ADDR']));
 ?>
-```
+{% endhighlight %}

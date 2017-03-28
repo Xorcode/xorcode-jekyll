@@ -33,6 +33,6 @@ backbeam.configure({
 
 Please see the documentation for respective product for more in-depth information.
 
-<a href="{{ 'http://docs.appcelerator.com/titanium/latest/' | bitly }}" class="btn btn-primary">Titanium™ SDK/Studio Documentation</a> <a href="{{ 'http://backbeam.io/documentation-javascript' | bitly }}" class="btn btn-primary">Backbeam JavaScript SDK</a>
+<a href="{{ 'http://docs.appcelerator.com/titanium/latest/' | bitly }}" class="button">Titanium™ SDK/Studio Documentation</a> <a href="{{ 'http://backbeam.io/documentation-javascript' | bitly }}" class="button">Backbeam JavaScript SDK</a>
 
 <small class="muted">Appcelerator<sup>®</sup> is a trademark of Appcelerator, Inc., registered in the U.S and/or other countries and is used under license.</small>

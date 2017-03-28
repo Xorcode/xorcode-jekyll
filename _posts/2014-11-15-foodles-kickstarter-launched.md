@@ -22,5 +22,5 @@ We at Xorcode finally fired up our [Kickstarter for Foodles](http://kck.st/1veSw
 
 Help us spread the word and by backing the [Foodles](http://kck.st/1veSwLo) project on Kickstarter!
 
-<a class="btn btn-success" href="http://kck.st/1veSwLo"><i class="fa fa-heart"></i> Kickstarter</a>
-<a class="btn btn-primary" href="http://foodl.es/"><i class="fa fa-bullhorn"></i> Foodles Landing page</a>
+<a class="button" href="http://kck.st/1veSwLo"><i class="fa fa-heart"></i> Kickstarter</a>
+<a class="button" href="http://foodl.es/"><i class="fa fa-bullhorn"></i> Foodles Landing page</a>

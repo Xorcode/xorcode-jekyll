@@ -39,7 +39,7 @@ In order for New Relic to be able to properly report for your application we nee
 
 Create a new file in your project root called `app.js` and add the following to that file to get New Relic up and running in your Geddy project:
 
-```
+{% highlight js filename="app.js" %}
 var geddy = require('geddy');
 
 geddy.startCluster({
@@ -47,20 +47,20 @@ geddy.startCluster({
 , port: process.env.PORT || '4000'
 , environment: process.env.NODE_ENV || 'development'
 });
-```
+{% endhighlight %}
 
 ## Loading New Relic
 
 Load New Relic in your `config/init.js` script.
 
-```
+{% highlight js filename="config/init.js" %}
 var cluster = require('cluster');
 
 if (cluster.isWorker && process.env.NODE_ENV == 'production') {
   process.env.NEW_RELIC_LOG = 'stdout';
   geddy.newrelic = require('newrelic');
 }
-```
+{% endhighlight %}
 
 We only require the New Relic module if we're running in production. You can always remove the `if` statement around `require('newrelic')` if that makes more sense to you. We also prefer that New Relic logs to `stdout` instead of to a log file since we host on various different platforms and we might not want files to be created at all.
 
@@ -86,7 +86,7 @@ You'll see output similar to this:
 
 Open up `app/controllers/application.js` and change its contents to the following:
 
-```
+{% highlight js filename="app/controllers/application.js" %}
 var Application = function () {
   this.before(function () {
     geddy.newrelic.setControllerName(this.params.controller, this.params.action);
@@ -94,7 +94,7 @@ var Application = function () {
 };
 
 exports.Application = Application;
-```
+{% endhighlight %}
 
 We are using `newrelic.setControllerName()` to name our requests so that they do not all get grouped under `/*` or similar in New Relic.
 
@@ -112,7 +112,7 @@ Once you start your application you will begin to see data in New Relic within f
 
 You can take a look at our example repository if you want to make sure you didn't miss anything.
 
-<a href="{{ 'https://bitbucket.org/xorcode/geddy-newrelic-tutorial/' | bitly }}" class="btn btn-primary"><i class="fa fa-bitbucket"></i> Fork on Bitbucket</a>
+<a href="{{ 'https://bitbucket.org/xorcode/geddy-newrelic-tutorial/' | bitly }}" class="button"><i class="fa fa-bitbucket"></i> Fork on Bitbucket</a>
 
 ## Documentation
 

@@ -13,7 +13,7 @@ Zend Framework has a straightforward setup process providing that the developer 
 
 <!--more-->
 
-> <img src="/uploads/2011/03/zf-logo-mark1.png" class="pull-right"> Extending the art and spirit of PHP, Zend Framework is based on simplicity, object-oriented best practices, corporate friendly licensing, and a rigorously tested agile codebase.
+> <img src="{{ '/assets/uploads/2011/03/zf-logo-mark1.png' | relative_url }}" class="pull-right"> Extending the art and spirit of PHP, Zend Framework is based on simplicity, object-oriented best practices, corporate friendly licensing, and a rigorously tested agile codebase.
 
 ## Requirements
 
@@ -27,7 +27,7 @@ We will create the project manually since the default settings for Zend Framewor
 
 ### File Structure
 
-```sh
+```shell
 myapp/
 myapp/application/
 myapp/application/configs/
@@ -50,20 +50,16 @@ myapp/public/lib/img/
 
 ### Creating necessary files
 
-**myapp/public/.htaccess**
-
-```sh
+{% highlight shell filename="myapp/public/.htaccess" %}
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^.*$ - [NC,L]
 RewriteRule ^.*$ index.php [NC,L]
-```
+{% endhighlight %}
 
-**myapp/public/index.php**
-
-```php
+{% highlight php filename="myapp/public/index.php" %}
 <?php
 // Define path to application directory
 defined('APPLICATION_PATH')
@@ -94,21 +90,17 @@ $application = new Zend_Application(
 $application->bootstrap()
             ->run();
 ?>
-```
+{% endhighlight %}
 
-**myapp/application/Bootstrap.php**
-
-```php
+{% highlight php filename="myapp/application/Bootstrap.php" %}
 <?php
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
 }
 ?>
-```
+{% endhighlight %}
 
-**myapp/application/configs/application.xml**
-
-```xml
+{% highlight xml filename="myapp/application/configs/application.xml" %}
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns:zf="http://framework.zend.com/xml/zend-config-xml/1.0/">
     <global>
@@ -199,11 +191,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         </resources>
     </development>
 </config>
-```
+{% endhighlight %}
 
-**myapp/application/modules/default/controllers/IndexController.php**
-
-```php
+{% highlight php filename="myapp/application/modules/default/controllers/IndexController.php" %}
 <?php
 require_once 'Zend/Controller/Action.php';
 class IndexController extends Zend_Controller_Action
@@ -231,11 +221,9 @@ class IndexController extends Zend_Controller_Action
     }
 }
 ?>
-```
+{% endhighlight %}
 
-**myapp/application/modules/default/controllers/ErrorController.php**
-
-```php
+{% highlight php filename="myapp/application/modules/default/controllers/ErrorController.php" %}
 <?php
 require_once 'Zend/Controller/Action.php';
 class ErrorController extends Zend_Controller_Action
@@ -286,11 +274,9 @@ class ErrorController extends Zend_Controller_Action
     }
 }
 ?>
-```
+{% endhighlight %}
 
-**myapp/library/Myapp/Application/Resource/View.php**
-
-```sh
+{% highlight php filename="myapp/library/Myapp/Application/Resource/View.php" %}
 <?php
 require_once ('Zend/Application/Resource/ResourceAbstract.php');
 class Myapp_Application_Resource_View extends Zend_Application_Resource_ResourceAbstract
@@ -321,11 +307,9 @@ class Myapp_Application_Resource_View extends Zend_Application_Resource_Resource
     }
 }
 ?>
-```
+{% endhighlight %}
 
-**myapp/application/layouts/scripts/layout.phtml**
-
-```php
+{% highlight php filename="myapp/application/layouts/scripts/layout.phtml" %}
 <?php echo $this->doctype() . PHP_EOL; ?>
 <html>
 
@@ -341,17 +325,13 @@ class Myapp_Application_Resource_View extends Zend_Application_Resource_Resource
 <?php echo $this->layout()->content . PHP_EOL; ?>
 </body>
 </html>
-```
+{% endhighlight %}
 
-**myapp/application/modules/default/views/scripts/index/index.phtml**
-
-```php
+{% highlight php filename="myapp/application/modules/default/views/scripts/index/index.phtml" %}
 <h1>Index page</h1>
-```
+{% endhighlight %}
 
-**myapp/application/modules/default/views/scripts/error/error.phtml**
-
-```php
+{% highlight php filename="myapp/application/modules/default/views/scripts/error/error.phtml" %}
 <h1>Application Error</h1>
 
 <?php if (isset($this->exception)): ?>
@@ -364,11 +344,9 @@ class Myapp_Application_Resource_View extends Zend_Application_Resource_Resource
 <h3>Request Parameters:</h3>
 <pre class="code"><?php echo var_export($this->request->getParams(), true) ?></pre>
 <?php endif ?>
-```
+{% endhighlight %}
 
-**myapp/application/modules/default/views/scripts/error/notfound.phtml**
-
-```php
+{% highlight php filename="myapp/application/modules/default/views/scripts/error/notfound.phtml" %}
 <h1>Page not found</h1>
 
 <?php if (isset($this->exception)): ?>
@@ -394,11 +372,11 @@ class Myapp_Application_Resource_View extends Zend_Application_Resource_Resource
 </ul>
 
 <?php endif ?>
-```
+{% endhighlight %}
 
 ## Further Reading
 
- * <a href="http://framework.zend.com/manual/en/learning.quickstart.intro.html" target="_blank">Zend Framework MVC Introduction</a>
- * <a href="http://framework.zend.com/manual/en/learning.quickstart.create-project.html" target="_blank">Zend Framework Quick Start</a>
+  * <a href="http://framework.zend.com/manual/en/learning.quickstart.intro.html" target="_blank">Zend Framework MVC Introduction</a>
+  * <a href="http://framework.zend.com/manual/en/learning.quickstart.create-project.html" target="_blank">Zend Framework Quick Start</a>
 
 In the next installation in this series of guides we will cover the necessary basics for a fully fledged Zend Framework application including View plugins, Application Resource plugins, and how to prepare your application to be modular and easy to extend.

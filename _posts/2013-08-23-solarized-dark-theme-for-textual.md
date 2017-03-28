@@ -23,4 +23,4 @@ $ git clone https://github.com/Xorcode/textual-solarized-dark.git
 
 Feel free to fork our repository to contribute changes, bug fixes, and features. If you run into any problems with the theme, please create an [issue](http://xorcode.net/1azz9C6).
 
-<a class="btn btn-primary" href="http://xorcode.net/1azzioV"><i class="fa fa-github"></i> Fork textual-solarized-dark on Github</a>
+<a class="button" href="http://xorcode.net/1azzioV"><i class="fa fa-github"></i> Fork textual-solarized-dark on Github</a>

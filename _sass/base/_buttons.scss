@@ -1,4 +1,4 @@
-#{$all-buttons} {
+#{$all-buttons}, .button {
   appearance: none;
   background-color: $action-color;
   border: 0;
@@ -33,4 +33,8 @@
       background-color: $action-color;
     }
   }
+}
+
+a.button {
+  color: #fff !important;
 }

@@ -26,4 +26,4 @@ Once you have installed the plugin you need to modify your `config.json` and add
 
 Templates with the `.html` extensions are parsed with Liquid.
 
-<a href="http://xorcode.net/13TudAo" class="btn btn-primary"><i class="fa fa-bitbucket"></i> Clone wintersmith-liquid on Bitbucket</a>
+<a href="http://xorcode.net/13TudAo" class="button"><i class="fa fa-bitbucket"></i> Clone wintersmith-liquid on Bitbucket</a>

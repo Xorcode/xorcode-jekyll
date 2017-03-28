@@ -16,21 +16,21 @@ Once you have an application based on [MEAN](http://xorcode.net/17N7RmC) you may
 
 In order to make this tutorial lesson easier to understand we have created a branch of MEAN which you can checkout and toy around with.
 
-<a href="http://xorcode.net/1av99Yo" class="btn btn-primary"><i class="fa fa-github"></i> Clone our MEAN repository</a>
+<a href="http://xorcode.net/1av99Yo" class="button"><i class="fa fa-github"></i> Clone our MEAN repository</a>
 
 In order to use OAuth2 with MEAN we first need to modify `package.json` to include the relevant Node.js modules that we need to use in order to enable support for OAuth authentication.
 
-```javascript package.json
-"dependencies": {
-  // ...
-  "passport-http": "latest",
-  "passport-http-bearer": "latest",
-  "passport-oauth2-client-password": "latest",
-  "oauth2orize": "latest",
-  "debug": "~0.7.2"
-  // ...
+{% highlight js filename="package.json" %}
+{
+  "dependencies": {
+    "passport-http": "latest",
+    "passport-http-bearer": "latest",
+    "passport-oauth2-client-password": "latest",
+    "oauth2orize": "latest",
+    "debug": "~0.7.2"
+  }
 }
-```
+{% endhighlight %}
 
 We also added the debug module since it's used by **oauth2orize** and we decided to use the same pattern for our additions to mean.
 
@@ -76,7 +76,7 @@ This will set up our client-side routes and make sure that the application respo
 
 Finally we need to add some routes to our router.
 
-```javascript config/routes.js
+{% highlight js filename="config/routes.js" %}
     //Client Routes
     var clients = require('../app/controllers/clients');
     app.get('/clients', clients.all);
@@ -84,7 +84,7 @@ Finally we need to add some routes to our router.
     app.get('/clients/:clientId', clients.show);
     app.put('/clients/:clientId', auth.requiresLogin, auth.client.hasAuthorization, clients.update);
     app.del('/clients/:clientId', auth.requiresLogin, auth.client.hasAuthorization, clients.destroy);
-```
+{% endhighlight %}
 
 Once we have this up and running, we're ready to create clients.
 
@@ -108,12 +108,13 @@ We need to add Passport strategies for basic authentication, client password aut
 
 Once we have added the passport strategies, we need to add a few new routes to allow clients to interact with our OAuth end-points.
 
-```javascript config/routes.js
+
+{% highlight js filename="config/routes.js" %}
     var oauth2 = require('./middlewares/oauth2');
     app.get('/oauth/authorize', auth.requiresLogin, oauth2.authorization, oauth2.dialog);
     app.post('/oauth/authorize/decision', auth.requiresLogin, oauth2.server.decision());
     app.post('/oauth/token', oauth2.token);
-```
+{% endhighlight %}
 
 These three new routes use our oauth2orize server.
 

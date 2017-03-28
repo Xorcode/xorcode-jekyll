@@ -74,7 +74,7 @@ $ git clone https://github.com/linnovate/mean
 $ cd ./mean
 ```
 
-<a href="https://github.com/linnovate/mean" class="btn btn-primary"><i class="fa fa-github"></i> Clone MEAN on Github</a>
+<a href="https://github.com/linnovate/mean" class="button"><i class="fa fa-github"></i> Clone MEAN on Github</a>
 
 ### Starting the application
 

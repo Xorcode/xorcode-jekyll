@@ -2,9 +2,9 @@ body.single, body.post, body.page {
   background-image: url('img/article-background.png');
   background-position: right;
   background-size: cover;
+  background-repeat: no-repeat;
   @include grid-media($large-screen) {
     background-position: right;
-    background-size: none;
   }
 }
 
@@ -138,6 +138,37 @@ article.type-post {
 
   p.author {
     font-family: $sans-serif;
+  }
+
+  blockquote {
+    background: lighten($light-gray, 10%);
+    border-left: 10px solid darken($light-gray, 7%);
+    quotes: "\201C""\201D""\2018""\2019";
+    padding: 1em 2em;
+    &:before {
+      font-family: $headings;
+      color: darken($light-gray, 7%);
+      content: "\201C";
+      font-size: 6em;
+      line-height: 0.1em;
+      margin-right: 0.1em;
+      vertical-align: -0.28em;
+    }
+    p {
+      display: inline;
+      font-style: italic;
+      font-weight: 300;
+      color: lighten($base-font-color, 20%) !important;
+    }
+  }
+}
+
+ul.pager {
+  & > li.previous {
+    float: left;
+  }
+  & > li.next {
+    float: right;
   }
 }
 
