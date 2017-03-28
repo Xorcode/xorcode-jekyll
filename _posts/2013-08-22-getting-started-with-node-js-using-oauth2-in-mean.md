@@ -20,7 +20,7 @@ In order to make this tutorial lesson easier to understand we have created a bra
 
 In order to use OAuth2 with MEAN we first need to modify `package.json` to include the relevant Node.js modules that we need to use in order to enable support for OAuth authentication.
 
-{% highlight js filename="package.json" %}
+{% highlight json filename="package.json" %}
 {
   "dependencies": {
     "passport-http": "latest",
