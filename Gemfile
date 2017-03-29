@@ -9,6 +9,7 @@ gem "kramdown", "~> 1.13.2"
 gem "pygments.rb", "~> 0.3.7"
 gem "sass", "~> 3.4.23"
 gem "html-proofer", "~> 3.6.0"
+gem "puma", "~> 3.8.2"
 
 group :jekyll_plugins do
   gem "bourbon", "~> 5.0.0.beta.7"
